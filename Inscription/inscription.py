@@ -1,18 +1,59 @@
 import string
 from tkinter import *
-from calendar import *
+import calendar
+from datetime import date, time, datetime
+from getpass import getpass
 
 
-def Pseudo(): 
+def pseudo(self, pseudo):
 
-    pseudo_min = 6
-    pseudo_max = 12
-    all_chars = string.punctuation + string.digits + string.ascii_letters
+    pseudo = str 
+    pseudo_min = len(6)
+    pseudo_max = len(12)
+    x = string.punctuation + string.digits + string.ascii_letters
+    i = 0
+    found = False
+
+    while i < len(pseudo):
+        if pseudo[i] == x:
+            found = True
+        i = i + 1
+
+    if len(pseudo) >= pseudo_min or len(pseudo) <= pseudo_max:
+        print(pseudo)
     
-def Birthday():
+    else:
+        print("Pseudo trop court ou trop long")
+
+
+def birthday(self, x, y, z):
+
+    today = datetime.now()
+    birthday = datetime(year=x, month=y, day=z)
+
+    if today.year - birthday.year < 10 :
+        print("Tu n'as pas encore 10 ans")
+
     return
 
-def validate():
+
+def password(self):
+    password_min = len(8)
+    x = string.digits + string.ascii_letters
+    password = str
+    i = 0
+    for i in range(len(password)):
+        if i < len(password_min):
+            print("Mot de passe trop court")
+            break
+            
+            if password != str:
+                print("Caractère non identifié")
+                break
+        print(i)
+
+
+def validate(self):
     return
 
 

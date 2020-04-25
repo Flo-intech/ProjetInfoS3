@@ -4,57 +4,73 @@ import calendar
 from datetime import date, time, datetime
 from getpass import getpass
 
-
-def pseudo(self, pseudo):
-
-    pseudo = str 
-    pseudo_min = len(6)
-    pseudo_max = len(12)
-    x = string.punctuation + string.digits + string.ascii_letters
-    i = 0
-    found = False
-
-    while i < len(pseudo):
-        if pseudo[i] == x:
-            found = True
-        i = i + 1
-
-    if len(pseudo) >= pseudo_min or len(pseudo) <= pseudo_max:
-        print(pseudo)
+class  Pseudo:
     
-    else:
-        print("Pseudo trop court ou trop long")
+    pseudo = str(input("Ecrire un pseudo : "))
 
+    def pseudo_characters(self, pseudo):
 
-def birthday(self, x, y, z):
+        pseudo = str(input("Ecrire un pseudo : "))
+        x = string.punctuation + string.digits + string.ascii_letters
+        i = 0
+        found = False
 
-    today = datetime.now()
-    birthday = datetime(year=x, month=y, day=z)
-
-    if today.year - birthday.year < 10 :
-        print("Tu n'as pas encore 10 ans")
-
-    return
-
-
-def password(self):
-    password_min = len(8)
-    x = string.digits + string.ascii_letters
-    password = str
-    i = 0
-    for i in range(len(password)):
-        if i < len(password_min):
-            print("Mot de passe trop court")
-            break
+        while i < len(pseudo):
+            if pseudo[i] == x:
+                found = True
+                print("Critères respectés")
+            i = i + 1
             
-            if password != str:
-                print("Caractère non identifié")
+        else :
+            print("Critères non respecté")
+
+    def pseudo_length(self, pseudo):
+
+        pseudo_min = 6
+        pseudo_max = 16
+
+        if len(pseudo) < pseudo_min:
+            print("Pseudo trop court")
+        elif len(pseudo) > pseudo_max:
+            print("Pseudo trop long")
+        else:
+            print("Pseudo validé")
+
+
+
+    def birthday(self, x, y, z):
+        
+        today = datetime.now()
+        birthday_year = "YYYY"
+        birthday_month = "YY"
+        birthday_day = "YY"
+        birthday = datetime
+
+        if today.year - birthday_year < 10 :
+            print("Tu n'as pas encore 10 ans")
+
+        return
+
+
+    def password(self):
+        password_min = len(8)
+        x = string.digits + string.ascii_letters
+        password = str
+        i = 0
+        for i in range(len(password)):
+            if i < len(password_min):
+                print("Mot de passe trop court")
                 break
-        print(i)
+                
+                if password != str:
+                    print("Caractère non identifié")
+                    break
+            print(i)
 
 
-def validate(self):
-    return
+    def validate(self):
+
+        return
 
 
 # fenetre

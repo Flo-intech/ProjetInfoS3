@@ -85,25 +85,24 @@ def pseudo():
 
 def password():
 
-    def password_characters(self, password):
+    password_min = 8
 
-        x = string.digits + string.ascii_letters
-        found = False
+    def password_characters(password):
+
         i = 0
-        
 
         while i < len(password):
-            if password[i] == x:
-                found = True
-                print("Critères respectés")
+            if password[i] in string.punctuation:
+                print("Critères non respectés")
+                return False
             i = i + 1
-
+            
         else :
-            print("Critères non respectés")
+            print("Critères respectés")
+            return True
 
-    def password_length(self, password):
-
-        password_min = 8
+    def password_length(password):
+    
 
         if len(password) < password_min:
             print("Mot de passe trop court")

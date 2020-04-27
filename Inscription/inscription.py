@@ -4,35 +4,41 @@ import calendar
 from datetime import date, time, datetime
 from getpass import getpass
 
-class  Pseudo:
+
     
+def pseudo():
 
-    def pseudo_characters(self, pseudo):
+    pseudo = string.digits + string.ascii_letters
+    pseudo_min = 6
+    pseudo_max = 16
+    x = string.digits + string.ascii_letters
 
-        x = string.punctuation + string.digits + string.ascii_letters
+    def pseudo_characters(pseudo):
+
         i = 0
-        found = False
 
         while i < len(pseudo):
-            if pseudo[i] == x:
-                found = True
-                print("Critères respectés")
+            if pseudo[i] in string.punctuation:
+                print("Critères non respectés")
+                return False
             i = i + 1
             
         else :
-            print("Critères non respecté")
+            print("Critères respectés")
+            return True
 
-    def pseudo_length(self, pseudo):
+    def pseudo_length(pseudo):
 
-        pseudo_min = 6
-        pseudo_max = 16
 
         if len(pseudo) < pseudo_min:
             print("Pseudo trop court")
+            return False
         elif len(pseudo) > pseudo_max:
             print("Pseudo trop long")
+            return False
         else:
             print("Pseudo validé")
+            return True
 
 
 
@@ -77,13 +83,14 @@ class  Pseudo:
                   continue
               break
 
-class Password:
+def password():
 
     def password_characters(self, password):
 
         x = string.digits + string.ascii_letters
         found = False
         i = 0
+        
 
         while i < len(password):
             if password[i] == x:
@@ -105,7 +112,7 @@ class Password:
 
     def validate(self):
         password_entry.delete(0, END)
-        password_entry.insert(0, Password)
+        password_entry.insert(0, password)
 
 
 # fenetre
@@ -150,7 +157,7 @@ password_entry.pack()
 frame.pack(side=TOP, pady = 100)
 
 # creer un bouton
-generate_password_button = Button(frame, text="Valider", font=("Helvetica", 17), bg='#4065A4', fg='white', command=Pseudo)
+generate_password_button = Button(frame, text="Valider", font=("Helvetica", 17), bg='#4065A4', fg='white', command=pseudo)
 generate_password_button.pack(pady = 30)
 
 
@@ -159,7 +166,7 @@ menu_bar = Menu(window)
 
 # creer un premier menu
 file_menu = Menu(menu_bar, tearoff=0)
-file_menu.add_command(label="Nouveau", command=Pseudo)
+file_menu.add_command(label="Nouveau", command=pseudo)
 file_menu.add_command(label="Quitter", command=window.quit)
 menu_bar.add_cascade(label="Fichier", menu=file_menu)
 

@@ -3,6 +3,7 @@ from tkinter import *
 import calendar
 from datetime import date, time, datetime
 from getpass import getpass
+import re
 
 
     
@@ -14,6 +15,8 @@ def pseudo():
     x = string.digits + string.ascii_letters
 
     def pseudo_characters(pseudo):
+
+        # vérifie la syntaxe du pseudo
 
         i = 0
 
@@ -28,7 +31,8 @@ def pseudo():
             return True
 
     def pseudo_length(pseudo):
-
+    
+    # verifie le nombre de caractère dans le pseudo
 
         if len(pseudo) < pseudo_min:
             print("Pseudo trop court")
@@ -41,53 +45,36 @@ def pseudo():
             return True
 
 
+def mailadress(mail):
 
-    def birthday(self, x, y, z):
+# Mise en place de la syntaxe de l'adresse mail
 
-        today = datetime.now()
-        birthday_year = int(input("Année de naissance: "))
-        birthday_month = int(input("Mois de naissace: "))
-        birthday_day = int(input("Jour de naissance"))
-        birthday = datetime
+    chars = r"^[^<>]*<([^<>]+)>$|(^[^<>]+$)"
+    a = re.findall(chars, mail.strip())
 
-        while True:
-          try:
-              birthday_day = int(input("Jour de naissance : "))
-              if birthday_day < 1 or birthday_day > 31:
-                  raise ValueError
-            
-          except ValueError:
-              print("Le jour de naissance n'est pas correct !")
-              continue
-          break
+    if len(a)>0:
+        address = ''.join(a[0]).strip()
 
-        while True:
-          try:
-              birthday_month = int(input("Mois de naissance : "))
-              if birthday_month < 1 or birthday_month > 12:
-                  raise ValueError
-            
-          except ValueError:
-              print("Le mois de naissance n'est pas correct !")
-              continue
-          break
+    else:
+        address = ''
 
-        while True:
-              try:
-                birthday_year = int(input("Année de naissance : "))
-                if today.year - birthday_year > 10:
-                        raise ValueError
-            
-              except ValueError:
-                  print("Tu n'as pas encore 10 ans !")
-                  continue
-              break
+# vérifie si la syntaxe de l'adresse mail est valide 
+        
+    if address =='':
+        return False
+
+    else:
+        chars = r"^[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)*@[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)*(\.[a-zA-Z]{2,6})$"
+        return re.match(chars, address) != None
+
 
 def password():
 
     password_min = 8
 
     def password_characters(password):
+
+        # vérifie la syntaxe du mot de passe
 
         i = 0
 
@@ -102,7 +89,8 @@ def password():
             return True
 
     def password_length(password):
-    
+
+    # verifie le nombre de caractère dans le mot de passe
 
         if len(password) < password_min:
             print("Mot de passe trop court")
@@ -135,11 +123,11 @@ pseudo_entry = Entry(frame, text="Pseudo", font=("Helvetica", 15), bg='#4065A4',
 pseudo_entry.pack()
 
 # titre
-label_title = Label(frame, text="Date de naissance", font=("Helvetica", 15), bg='#4065A4', fg='white')
+label_title = Label(frame, text="Adresse de messagerie", font=("Helvetica", 15), bg='#4065A4', fg='white')
 label_title.pack()
 
 # champs/entrée/input
-birthday_entry = Entry(frame, text="Date de naissance ", font=("Helvetica", 15), bg='#4065A4', fg='white')
+birthday_entry = Entry(frame, text="Adresse de messagerie", font=("Helvetica", 15), bg='#4065A4', fg='white')
 birthday_entry.pack()
 
 # titre

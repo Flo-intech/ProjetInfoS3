@@ -5,14 +5,65 @@ from datetime import date, time, datetime
 from getpass import getpass
 import re
 
+def delete():
+    window1.destroy()
+
+
+def delete1():
+    window2.destroy()
+
+
+def error():
+    global window1
+    window1 = Toplevel(window)
+    window1.geometry("150x90")
+    window1.title("Warning!")
+    Label(window1, text = "All fields required", fg = "red").pack()
+    Button(window1, text = "OK", command = delete).pack
+
+def success():
+    global window2
+    window2 = Toplevel(window)
+    window2.geometry("150x90")
+    window2.title("Warning!")
+    Label(window2, text = "Registration Sucess!", fg = "green").pack()
+    Button(window2, text = "OK", command = delete1).pack()
+
+
+def save_info():
+    pseudo_info = pseudo.get()
+    mailadress_info = mailadress.get()
+    password_info = password.get()
+    print(pseudo_info, mailadress_info, password_info)
+
+    file = open("user.txt", "w")
+    file.write(pseudo_info)
+    file.write(mailadress_info)
+    file.write(password_info)
+    file.close()
+    print(" User", pseudo_info, " has been registered successfully")
+
+    pseudo_entry.delete(0, END)
+    mailadress_entry.delete(0, END)
+    password_entry.delete(0, END)
+
+    if pseudo_info is False:
+        error()
+
+    elif mailadress_info is False:
+        error()
+
+    elif password_info is False:
+        error()
+
+    else:
+        success()
 
     
 def pseudo():
 
-    pseudo = string.digits + string.ascii_letters
     pseudo_min = 6
     pseudo_max = 16
-    x = string.digits + string.ascii_letters
 
     def pseudo_characters(pseudo):
 
@@ -68,7 +119,7 @@ def mailadress(mail):
         return re.match(chars, address) != None
 
 
-def password():
+def password(password):
 
     password_min = 8
 
@@ -94,12 +145,13 @@ def password():
 
         if len(password) < password_min:
             print("Mot de passe trop court")
+            return False
+
         else:
             print("Mot de passe validé")
+            return True
 
-    def validate(self):
-        password_entry.delete(0, END)
-        password_entry.insert(0, password)
+
 
 
 # fenetre
@@ -107,6 +159,13 @@ window = Tk()
 window.title("Inscription")
 window.geometry("720x480")
 window.config(background='#4065A4')
+validate = window.register(mailadress)
+
+
+pseudo = StringVar()
+password = StringVar()
+mailadress = StringVar()
+
 
 # frame principale
 frame = Frame(window, bg='#4065A4')
@@ -119,7 +178,7 @@ label_title = Label(frame, text="Pseudo", font=("Helvetica", 15), bg='#4065A4', 
 label_title.pack()
 
 # champs/entrée/input
-pseudo_entry = Entry(frame, text="Pseudo", font=("Helvetica", 15), bg='#4065A4', fg='white')
+pseudo_entry = Entry(frame, textvariable = pseudo, font=("Helvetica", 15), bg='#4065A4', fg='white')
 pseudo_entry.pack()
 
 # titre
@@ -127,15 +186,15 @@ label_title = Label(frame, text="Adresse de messagerie", font=("Helvetica", 15),
 label_title.pack()
 
 # champs/entrée/input
-birthday_entry = Entry(frame, text="Adresse de messagerie", font=("Helvetica", 15), bg='#4065A4', fg='white')
-birthday_entry.pack()
+mailadress_entry = Entry(frame, textvariable = mailadress, font=("Helvetica", 15), bg='#4065A4', fg='white', validatecommand=(validate))
+mailadress_entry.pack()
 
 # titre
 label_title = Label(frame, text="Mot de passe", font=("Helvetica", 15), bg='#4065A4', fg='white')
 label_title.pack()
 
 # champs/entrée/input
-password_entry = Entry(frame, text="Mot de passe", font=("Helvetica", 15), bg='#4065A4', fg='white')
+password_entry = Entry(frame, textvariable = password, font=("Helvetica", 15), bg='#4065A4', fg='white')
 password_entry.pack()
 
 
@@ -144,7 +203,7 @@ password_entry.pack()
 frame.pack(side=TOP, pady = 100)
 
 # creer un bouton
-generate_password_button = Button(frame, text="Valider", font=("Helvetica", 17), bg='#4065A4', fg='white', command=pseudo)
+generate_password_button = Button(frame, text="Valider", font=("Helvetica", 17), bg='#4065A4', fg='white', command=save_info)
 generate_password_button.pack(pady = 30)
 
 

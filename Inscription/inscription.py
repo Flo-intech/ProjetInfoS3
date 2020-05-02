@@ -1,149 +1,63 @@
 import string
 from tkinter import *
 from tkinter import messagebox
-from getpass import getpass
 import re
 
-def delete():
-    window1.destroy()
 
 
-def delete1():
-    window2.destroy()
+window = Tk()
 
 
-def error():
-    global window1
-    window1 = Toplevel(window)
-    window1.geometry("150x90")
-    window1.title("Warning!")
-    Label(window1, text = "All fields required", fg = "red").pack()
-    Button(window1, text = "OK", command = delete).pack
-
-def success():
-    global window2
-    window2 = Toplevel(window)
-    window2.geometry("150x90")
-    window2.title("Warning!")
-    Label(window2, text = "Registration Sucess!", fg = "green").pack()
-    Button(window2, text = "OK", command = delete1).pack()
-
+def validPseudo(pseudo):
     
+    i = 0 
 
-
-
-def pseudo_characters(pseudo):
-
-    # vérifie la syntaxe du pseudo
-
-    i = 0
-
-    while i < len(pseudo):
+    if i < len(pseudo):
         if pseudo[i] in string.punctuation:
-            print("Critères non respectés")
-            return False
-        i = i + 1
+            return True
+        return False
             
-    else :
-        print("Critères respectés")
-        return True
-
-def pseudo_length(pseudo):
-    
-    # verifie le nombre de caractère dans le pseudo
-
-    pseudo_min = 6
-    pseudo_max = 16
-
-    if len(pseudo) < pseudo_min:
-        print("Pseudo trop court")
-        return False
-    elif len(pseudo) > pseudo_max:
-        print("Pseudo trop long")
-        return False
     else:
-        print("Pseudo validé")
-        return True
-
+        messagebox.showinfo('Information', 'This is not a valid Pseudo')
+        return False
 
 def validEmail(mail):
-
+    
 # Mise en place de la syntaxe de l'adresse mail
+# vérifie si la syntaxe du pseudo est valide 
 
     if len(mail) > 7:
-        if re.match("^[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)*@[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)*(\.[a-zA-Z]{2,6})$", user_email) != None:
+        if re.match("^[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)*@[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)*(\.[a-zA-Z]{2,6})$", mail) != None:
             return True
         return False
     else:
-        messagebox.showinfo('Information', 'This is not a valid email address')
+        messagebox.showinfo('Information', "Cette adresse email n'est pas valide")
         return False
-
-# vérifie si la syntaxe de l'adresse mail est valide 
-
-
-
-def password_characters(password):
-
-        # vérifie la syntaxe du mot de passe
-
-    i = 0
-
-    while i < len(password):
-        if password[i] in string.punctuation:
-            print("Critères non respectés")
-            return False
-        i = i + 1
-            
-    else :
-        print("Critères respectés")
-        return True
-
-def password_length(password):
-
-    password_min = 8
-
-    # verifie le nombre de caractère dans le mot de passe
-
-    if len(password) < password_min:
-        print("Mot de passe trop court")
-        return False
-
-    else:
-        print("Mot de passe validé")
-        return True
-
-
 
 def save_info():
     if pseudo.get() == "":
-        messagebox.showinfo('Information', 'Please Enter FullName to Proceed')
+        messagebox.showinfo('Information', 'Veuillez entrer le nom complet pour continuer')
     elif password.get() == "":
-        messagebox.showinfo('Information', 'Please Enter Password to Proceed')
+        messagebox.showinfo('Information', 'Veuillez entrer le mot de passe pour continuer')
     elif emailadress.get() == "":
-        messagebox.showinfo('Information', 'Please Enter Email to Proceed')
-    elif pseudo.get()  == "":
-        status1 = pseudo_characters(pseudo.get())
-        status2 = pseudo_length(pseudo.get())
-        if (status1):
-            messagebox.showinfo('Information', 'User Registered Successfully')
-        if (status2):
-            messagebox.showinfo('Information', 'User Registered Successfully')
-    elif password.get() == "":
-        status3 = password_characters(pseudo.get())
-        status4 = password_length(pseudo.get())
-        if (status3):
-            messagebox.showinfo('Information', 'User Registered Successfully')
-        if (status4):
-            messagebox.showinfo('Information', 'User Registered Successfully')
-    elif emailadress.get() == "":
-        status5 = validEmail(emailadress.get())
-        if(status5):
-            messagebox.showinfo('Information', 'User Registered Successfully')
+        messagebox.showinfo('Information', "Veuillez entrer l'adresse mail pour continuer")
+    elif len(pseudo.get()) < 6:
+            messagebox.showinfo('Information', 'Veuillez entrer 6 caractères minimum du pseudo pour continuer')
+    elif len(pseudo.get()) > 16:
+            messagebox.showinfo('Information', 'Veuillez entrer 16 caractères maximum du pseudo pour continuer')
+    elif len(password.get()) < 8:
+            messagebox.showinfo('Information', 'Veuillez entrer 8 caractères minimum du mot de passe pour continuer')
+    elif emailadress.get() != "":
+        status2 = validEmail(emailadress.get())
+        if(status2):
+            messagebox.showinfo('Information', 'Utilisateur enregistré avec succès')
     else:
-        messagebox.showinfo('Information', 'User Registered Successfully')
+        messagebox.showinfo('Information', 'Utilisateur enregistré avec succès')
+
+
+
 
 # fenetre
-window = Tk()
 window.title("Inscription")
 window.geometry("720x480")
 window.config(background='#4065A4')

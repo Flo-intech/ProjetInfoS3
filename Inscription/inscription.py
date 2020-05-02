@@ -1,7 +1,6 @@
 import string
 from tkinter import *
-import calendar
-from datetime import date, time, datetime
+from tkinter import messagebox
 from getpass import getpass
 import re
 
@@ -29,142 +28,130 @@ def success():
     Label(window2, text = "Registration Sucess!", fg = "green").pack()
     Button(window2, text = "OK", command = delete1).pack()
 
-
-def save_info():
-    pseudo_info = pseudo.get()
-    mailadress_info = mailadress.get()
-    password_info = password.get()
-    print(pseudo_info, mailadress_info, password_info)
-
-    file = open("user.txt", "w")
-    file.write(pseudo_info)
-    file.write(mailadress_info)
-    file.write(password_info)
-    file.close()
-    print(" User", pseudo_info, " has been registered successfully")
-
-    pseudo_entry.delete(0, END)
-    mailadress_entry.delete(0, END)
-    password_entry.delete(0, END)
-
-    if pseudo_info is False:
-        error()
-
-    elif mailadress_info is False:
-        error()
-
-    elif password_info is False:
-        error()
-
-    else:
-        success()
-
     
-def pseudo():
+
+
+
+def pseudo_characters(pseudo):
+
+    # vérifie la syntaxe du pseudo
+
+    i = 0
+
+    while i < len(pseudo):
+        if pseudo[i] in string.punctuation:
+            print("Critères non respectés")
+            return False
+        i = i + 1
+            
+    else :
+        print("Critères respectés")
+        return True
+
+def pseudo_length(pseudo):
+    
+    # verifie le nombre de caractère dans le pseudo
 
     pseudo_min = 6
     pseudo_max = 16
 
-    def pseudo_characters(pseudo):
-
-        # vérifie la syntaxe du pseudo
-
-        i = 0
-
-        while i < len(pseudo):
-            if pseudo[i] in string.punctuation:
-                print("Critères non respectés")
-                return False
-            i = i + 1
-            
-        else :
-            print("Critères respectés")
-            return True
-
-    def pseudo_length(pseudo):
-    
-    # verifie le nombre de caractère dans le pseudo
-
-        if len(pseudo) < pseudo_min:
-            print("Pseudo trop court")
-            return False
-        elif len(pseudo) > pseudo_max:
-            print("Pseudo trop long")
-            return False
-        else:
-            print("Pseudo validé")
-            return True
+    if len(pseudo) < pseudo_min:
+        print("Pseudo trop court")
+        return False
+    elif len(pseudo) > pseudo_max:
+        print("Pseudo trop long")
+        return False
+    else:
+        print("Pseudo validé")
+        return True
 
 
-def mailadress(mail):
+def validEmail(mail):
 
 # Mise en place de la syntaxe de l'adresse mail
 
-    chars = r"^[^<>]*<([^<>]+)>$|(^[^<>]+$)"
-    a = re.findall(chars, mail.strip())
-
-    if len(a)>0:
-        address = ''.join(a[0]).strip()
-
+    if len(mail) > 7:
+        if re.match("^[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)*@[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)*(\.[a-zA-Z]{2,6})$", user_email) != None:
+            return True
+        return False
     else:
-        address = ''
-
-# vérifie si la syntaxe de l'adresse mail est valide 
-        
-    if address =='':
+        messagebox.showinfo('Information', 'This is not a valid email address')
         return False
 
-    else:
-        chars = r"^[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)*@[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)*(\.[a-zA-Z]{2,6})$"
-        return re.match(chars, address) != None
+# vérifie si la syntaxe de l'adresse mail est valide 
 
 
-def password(password):
 
-    password_min = 8
-
-    def password_characters(password):
+def password_characters(password):
 
         # vérifie la syntaxe du mot de passe
 
-        i = 0
+    i = 0
 
-        while i < len(password):
-            if password[i] in string.punctuation:
-                print("Critères non respectés")
-                return False
-            i = i + 1
+    while i < len(password):
+        if password[i] in string.punctuation:
+            print("Critères non respectés")
+            return False
+        i = i + 1
             
-        else :
-            print("Critères respectés")
-            return True
+    else :
+        print("Critères respectés")
+        return True
 
-    def password_length(password):
+def password_length(password):
+
+    password_min = 8
 
     # verifie le nombre de caractère dans le mot de passe
 
-        if len(password) < password_min:
-            print("Mot de passe trop court")
-            return False
+    if len(password) < password_min:
+        print("Mot de passe trop court")
+        return False
 
-        else:
-            print("Mot de passe validé")
-            return True
+    else:
+        print("Mot de passe validé")
+        return True
 
 
 
+def save_info():
+    if pseudo.get() == "":
+        messagebox.showinfo('Information', 'Please Enter FullName to Proceed')
+    elif password.get() == "":
+        messagebox.showinfo('Information', 'Please Enter Password to Proceed')
+    elif emailadress.get() == "":
+        messagebox.showinfo('Information', 'Please Enter Email to Proceed')
+    elif pseudo.get()  == "":
+        status1 = pseudo_characters(pseudo.get())
+        status2 = pseudo_length(pseudo.get())
+        if (status1):
+            messagebox.showinfo('Information', 'User Registered Successfully')
+        if (status2):
+            messagebox.showinfo('Information', 'User Registered Successfully')
+    elif password.get() == "":
+        status3 = password_characters(pseudo.get())
+        status4 = password_length(pseudo.get())
+        if (status3):
+            messagebox.showinfo('Information', 'User Registered Successfully')
+        if (status4):
+            messagebox.showinfo('Information', 'User Registered Successfully')
+    elif emailadress.get() == "":
+        status5 = validEmail(emailadress.get())
+        if(status5):
+            messagebox.showinfo('Information', 'User Registered Successfully')
+    else:
+        messagebox.showinfo('Information', 'User Registered Successfully')
 
 # fenetre
 window = Tk()
 window.title("Inscription")
 window.geometry("720x480")
 window.config(background='#4065A4')
-validate = window.register(mailadress)
 
 
 pseudo = StringVar()
 password = StringVar()
-mailadress = StringVar()
+emailadress = StringVar()
 
 
 # frame principale
@@ -186,8 +173,8 @@ label_title = Label(frame, text="Adresse de messagerie", font=("Helvetica", 15),
 label_title.pack()
 
 # champs/entrée/input
-mailadress_entry = Entry(frame, textvariable = mailadress, font=("Helvetica", 15), bg='#4065A4', fg='white', validatecommand=(validate))
-mailadress_entry.pack()
+emailadress_entry = Entry(frame, textvariable = emailadress, font=("Helvetica", 15), bg='#4065A4', fg='white')
+emailadress_entry.pack()
 
 # titre
 label_title = Label(frame, text="Mot de passe", font=("Helvetica", 15), bg='#4065A4', fg='white')

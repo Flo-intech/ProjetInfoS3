@@ -7,6 +7,9 @@ import re
 
 window = Tk()
 
+#Définir la variable info sur tempfile.temp
+
+info = 'tempfile.temp'
 
 def validPseudo(pseudo):
     
@@ -61,9 +64,16 @@ def save_info():
         status2 = validEmail(emailadress.get())
         if(status2):
             messagebox.showinfo('Information', 'Utilisateur enregistré avec succès')
-    else:
+    else:       
         messagebox.showinfo('Information', 'Utilisateur enregistré avec succès')
 
+    with open(info, 'w') as f: # Creates a document using the variable we made at the top.
+        f.write(pseudo.get()) # nameE is the variable we were storing the input to. Tkinter makes us use .get() to get the actual string.
+        f.write('\n') # Splits the line so both variables are on different lines.
+        f.write(password.get()) # Same as nameE just with pword var
+        f.write('\n') # Splits the line so both variables are on different lines.
+        f.write(emailadress.get()) # Same as nameE just with pword var
+        f.close() # Closes the file
 
 
 

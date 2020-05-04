@@ -21,6 +21,12 @@ def validPseudo(pseudo):
         messagebox.showinfo('Information', 'This is not a valid Pseudo')
         return False
 
+def initialisation():
+    pseudo.set("")
+    password.set("")
+    password_confirmation.set("")
+    emailadress.set("")
+
 def validEmail(mail):
     
 # Mise en place de la syntaxe de l'adresse mail
@@ -41,6 +47,10 @@ def save_info():
         messagebox.showinfo('Information', 'Veuillez entrer le mot de passe pour continuer')
     elif emailadress.get() == "":
         messagebox.showinfo('Information', "Veuillez entrer l'adresse mail pour continuer")
+    elif password_confirmation.get() == "":
+        messagebox.showinfo('Information', "Veuillez confirmer l'adresse mail pour continuer")
+    elif password.get() != password_confirmation.get():
+        messagebox.showinfo('Information', 'Mot de passe différent')
     elif len(pseudo.get()) < 6:
             messagebox.showinfo('Information', 'Veuillez entrer 6 caractères minimum du pseudo pour continuer')
     elif len(pseudo.get()) > 16:
@@ -65,48 +75,47 @@ window.config(background='#4065A4')
 
 pseudo = StringVar()
 password = StringVar()
+password_confirmation = StringVar()
 emailadress = StringVar()
 
 
-# frame principale
-frame = Frame(window, bg='#4065A4')
-
-# deuxieme frame
-frame1 = Frame(window, bg='#4065A4')
-
 # titre
-label_title = Label(frame, text="Pseudo", font=("Helvetica", 15), bg='#4065A4', fg='white')
-label_title.pack()
+label_title = Label(window, text="Pseudo", font=("Helvetica", 15), bg='#4065A4', fg='white')
+label_title.place(x=240, y=80)
 
 # champs/entrée/input
-pseudo_entry = Entry(frame, textvariable = pseudo, font=("Helvetica", 15), bg='#4065A4', fg='white')
-pseudo_entry.pack()
+pseudo_entry = Entry(window, textvariable = pseudo, font=("Helvetica", 15), bg='#4065A4', fg='white')
+pseudo_entry.place(x=240, y=110)
 
 # titre
-label_title = Label(frame, text="Adresse de messagerie", font=("Helvetica", 15), bg='#4065A4', fg='white')
-label_title.pack()
+label_title = Label(window, text="Adresse de messagerie", font=("Helvetica", 15), bg='#4065A4', fg='white')
+label_title.place(x=240, y=160)
 
 # champs/entrée/input
-emailadress_entry = Entry(frame, textvariable = emailadress, font=("Helvetica", 15), bg='#4065A4', fg='white')
-emailadress_entry.pack()
+emailadress_entry = Entry(window, textvariable = emailadress, font=("Helvetica", 15), bg='#4065A4', fg='white')
+emailadress_entry.place(x=240, y=190)
 
 # titre
-label_title = Label(frame, text="Mot de passe", font=("Helvetica", 15), bg='#4065A4', fg='white')
-label_title.pack()
+label_title = Label(window, text="Mot de passe", font=("Helvetica", 15), bg='#4065A4', fg='white')
+label_title.place(x=240, y=240)
 
 # champs/entrée/input
-password_entry = Entry(frame, textvariable = password, font=("Helvetica", 15), bg='#4065A4', fg='white')
-password_entry.pack()
+password_entry = Entry(window,show="*", textvariable = password, font=("Helvetica", 15), bg='#4065A4', fg='white')
+password_entry.place(x=240, y=270)
 
+# titre
+label_title = Label(window, text="Confirmer mot de passe", font=("Helvetica", 15), bg='#4065A4', fg='white')
+label_title.place(x=240, y=320)
 
+# champs/entrée/input
+password_confirmation_entry = Entry(window, show="*", textvariable = password_confirmation, font=("Helvetica", 15), bg='#4065A4', fg='white')
+password_confirmation_entry.place(x=240, y=350)
 
-# afficher la frame pricipale
-frame.pack(side=TOP, pady = 100)
+# Bouton Validé
+validate_button = Button(window, text="Valider", font=("Helvetica", 17), bg='#4065A4', fg='white', command=save_info).place(x=250, y=430)
 
-# creer un bouton
-generate_password_button = Button(frame, text="Valider", font=("Helvetica", 17), bg='#4065A4', fg='white', command=save_info)
-generate_password_button.pack(pady = 30)
-
+#Bouton Initialisé
+initialisation_button = Button(window, text="Initialser", font=("Helvetica", 17), bg='#4065A4', fg='white', command=initialisation).place(x=360, y=430)
 
 # creation de la barre de menu
 menu_bar = Menu(window)

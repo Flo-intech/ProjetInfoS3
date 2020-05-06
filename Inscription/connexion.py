@@ -2,7 +2,7 @@ import string
 from tkinter import *
 from tkinter import messagebox
 import re
-
+import inscription
 
 window = Tk()
 

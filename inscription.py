@@ -3,7 +3,7 @@ from tkinter import *
 from tkinter import messagebox
 import re
 import os
-
+import connexion
 
 
 window = Tk()
@@ -73,13 +73,13 @@ def save_info():
     else:       
         messagebox.showinfo('Information', 'Utilisateur enregistré avec succès')
 
-    with open(info, 'w') as f: # Creates a document using the variable we made at the top.
-        f.write(pseudo_entry.get()) # nameE is the variable we were storing the input to. Tkinter makes us use .get() to get the actual string.
-        f.write('\n') # Splits the line so both variables are on different lines.
-        f.write(password_entry.get()) # Same as nameE just with pword var
-        f.write('\n') # Splits the line so both variables are on different lines.
-        f.write(emailadress_entry.get()) # Same as nameE just with pword var
-        f.close() # Closes the file
+    with open(info, 'w') as f:
+        f.write(pseudo_entry.get()) 
+        f.write('\n') 
+        f.write(password_entry.get()) 
+        f.write('\n') 
+        f.write(emailadress_entry.get()) 
+        f.close() 
 
 
 

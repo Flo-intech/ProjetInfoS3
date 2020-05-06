@@ -1,8 +1,11 @@
+import sys
 import string
 from tkinter import *
 from tkinter import messagebox
 import re
-import inscription
+from inscription import pseudo
+from inscription import password
+from inscription import emailadress
 
 window = Tk()
 
@@ -17,16 +20,14 @@ window.config(background='#4065A4')
 
 
 def check_login():
-
     # Prendre tout le document file dans lequel non met les informations et les place dans la variable de données
 
     with open(info) as f:
         data = f.readlines() 
         name = data[0].rstrip() 
-        pwd = data[1].rstrip()
-        mail = data[2].rstrip() 
+        pwd = data[1].rstrip() 
  
-    if pseudo.get() == name and password.get() == pwd and emailadress.get() == mail:
+    if pseudo_entry.get() == name and password_entry.get() == pwd:
         miniwindow = Tk() 
         miniwindow.title('Succes')
         miniwindow.geometry('150x50') 
@@ -43,16 +44,16 @@ def check_login():
 
     
 # titre
-label_title = Label(window, text="Pseudo", font=("Helvetica", 15), bg='#4065A4', fg='white')
-label_title.place(x=240, y=80)
+pseudo_label = Label(window, text="Pseudo", font=("Helvetica", 15), bg='#4065A4', fg='white')
+pseudo_label.place(x=240, y=80)
 
 # champs/entrée/input
 pseudo_entry = Entry(window, textvariable = pseudo, font=("Helvetica", 15), bg='#4065A4', fg='white')
 pseudo_entry.place(x=240, y=110)
 
 # titre
-label_title = Label(window, text="Mot de passe", font=("Helvetica", 15), bg='#4065A4', fg='white')
-label_title.place(x=240, y=160)
+password_label = Label(window, text="Mot de passe", font=("Helvetica", 15), bg='#4065A4', fg='white')
+password_label.place(x=240, y=160)
 
 # champs/entrée/input
 password_entry = Entry(window, show="*", textvariable = password, font=("Helvetica", 15), bg='#4065A4', fg='white')

@@ -2,6 +2,7 @@ import string
 from tkinter import *
 from tkinter import messagebox
 import re
+import os
 
 
 
@@ -10,6 +11,11 @@ window = Tk()
 #Définir la variable info sur tempfile.temp
 
 info = 'tempfile.temp'
+
+pseudo = StringVar()
+password = StringVar()
+password_confirmation = StringVar()
+emailadress = StringVar()
 
 def validPseudo(pseudo):
     
@@ -68,11 +74,11 @@ def save_info():
         messagebox.showinfo('Information', 'Utilisateur enregistré avec succès')
 
     with open(info, 'w') as f: # Creates a document using the variable we made at the top.
-        f.write(pseudo.get()) # nameE is the variable we were storing the input to. Tkinter makes us use .get() to get the actual string.
+        f.write(pseudo_entry.get()) # nameE is the variable we were storing the input to. Tkinter makes us use .get() to get the actual string.
         f.write('\n') # Splits the line so both variables are on different lines.
-        f.write(password.get()) # Same as nameE just with pword var
+        f.write(password_entry.get()) # Same as nameE just with pword var
         f.write('\n') # Splits the line so both variables are on different lines.
-        f.write(emailadress.get()) # Same as nameE just with pword var
+        f.write(emailadress_entry.get()) # Same as nameE just with pword var
         f.close() # Closes the file
 
 
@@ -83,39 +89,34 @@ window.geometry("720x480")
 window.config(background='#4065A4')
 
 
-pseudo = StringVar()
-password = StringVar()
-password_confirmation = StringVar()
-emailadress = StringVar()
-
 
 # titre
-label_title = Label(window, text="Pseudo", font=("Helvetica", 15), bg='#4065A4', fg='white')
-label_title.place(x=240, y=80)
+pseudo_label = Label(window, text="Pseudo", font=("Helvetica", 15), bg='#4065A4', fg='white')
+pseudo_label.place(x=240, y=80)
 
 # champs/entrée/input
 pseudo_entry = Entry(window, textvariable = pseudo, font=("Helvetica", 15), bg='#4065A4', fg='white')
 pseudo_entry.place(x=240, y=110)
 
 # titre
-label_title = Label(window, text="Adresse de messagerie", font=("Helvetica", 15), bg='#4065A4', fg='white')
-label_title.place(x=240, y=160)
+emailadress_label = Label(window, text="Adresse de messagerie", font=("Helvetica", 15), bg='#4065A4', fg='white')
+emailadress_label.place(x=240, y=160)
 
 # champs/entrée/input
 emailadress_entry = Entry(window, textvariable = emailadress, font=("Helvetica", 15), bg='#4065A4', fg='white')
 emailadress_entry.place(x=240, y=190)
 
 # titre
-label_title = Label(window, text="Mot de passe", font=("Helvetica", 15), bg='#4065A4', fg='white')
-label_title.place(x=240, y=240)
+password_label = Label(window, text="Mot de passe", font=("Helvetica", 15), bg='#4065A4', fg='white')
+password_label.place(x=240, y=240)
 
 # champs/entrée/input
 password_entry = Entry(window,show="*", textvariable = password, font=("Helvetica", 15), bg='#4065A4', fg='white')
 password_entry.place(x=240, y=270)
 
 # titre
-label_title = Label(window, text="Confirmer mot de passe", font=("Helvetica", 15), bg='#4065A4', fg='white')
-label_title.place(x=240, y=320)
+password_confirmation_label = Label(window, text="Confirmer mot de passe", font=("Helvetica", 15), bg='#4065A4', fg='white')
+password_confirmation_label.place(x=240, y=320)
 
 # champs/entrée/input
 password_confirmation_entry = Entry(window, show="*", textvariable = password_confirmation, font=("Helvetica", 15), bg='#4065A4', fg='white')

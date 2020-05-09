@@ -133,7 +133,7 @@ menu_bar = Menu(window)
 
 # creer un premier menu
 file_menu = Menu(menu_bar, tearoff=0)
-file_menu.add_command(label="Nouveau", command=pseudo)
+file_menu.add_command(label="Nouveau", command=initialisation)
 file_menu.add_command(label="Quitter", command=window.quit)
 menu_bar.add_cascade(label="Fichier", menu=file_menu)
 

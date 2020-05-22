@@ -3,7 +3,6 @@ from tkinter import *
 from tkinter import messagebox
 import re
 import os
-import connexion
 
 
 window = Tk()

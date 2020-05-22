@@ -1,56 +1,25 @@
-import plotly.express as px
 from tkinter import *
+import tkinter as tk
 
-df = px.data.gapminder()
+window = Tk()
+c = Canvas(window, height=800, width=800)
+c.pack()
+
+# fenetre
+window.title("Inscription")
+window.geometry("720x480")
+
+mappemonde = PhotoImage(file="mappemonde.png")
+button1 = PhotoImage(file="button1.png")
+
+c.create_image(350, 270, image=mappemonde)
+
+buttonSouthAmerica = Button(window, image=button1, height=15, width=15).place(x=170, y=310)
+buttonNorthAmerica = Button(window, image=button1, height=15, width=15).place(x=100, y=170)
+buttonAsia = Button(window, image=button1, height=15, width=15).place(x=500, y=170)
+buttonEurope = Button(window, image=button1, height=15, width=15).place(x=350, y=170)
+buttonAfrica = Button(window, image=button1, height=15, width=15).place(x=370, y=270)
+buttonOceania = Button(window, image=button1, height=15, width=15).place(x=610, y=350)
 
 
-fig = px.scatter_geo(df, locations="iso_alpha", color="continent", hover_name="country", size="pop",
-                projection="natural earth")
-
-fig.update_layout(
-    updatemenus=[
-dict(
-            active=0,
-            buttons=list([
-                dict(label="Sport",
-                     method="update",
-                     args=[{"visible": []},
-                           {"title": "Sport",
-                            "annotations": []}]),
-                dict(label="Foot",
-                     method="update",
-                     args=[{"visible": []},
-                           {"title": "Foot",
-                            "annotations": []}]),
-                dict(label="Basket",
-                     method="update",
-                     args=[{"visible": []},
-                           {"title": "Basket",
-                            "annotations": []}]),
-                dict(label="Tennis",
-                     method="update",
-                     args=[{"visible": []},
-                           {"title": "Tennis",
-                            "annotations": []}]),
-            ]),
-        ),
-        dict(
-            buttons=list([
-                dict(
-                    args=[],
-                    label="Login",
-                    method="update"
-                ),
-            ]),
-            type = "buttons",
-            direction="right",
-            pad={"r": 10, "t": 10},
-            showactive=True,
-            x=0.5,
-            xanchor="left",
-            yanchor="top"
-        ),
-    ]
-)
-
-fig.show()
+window.mainloop()

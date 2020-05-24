@@ -1,16 +1,19 @@
-import sys
 import string
 from tkinter import *
 from tkinter import messagebox
 import re
+from Pseudo import Personne
 
-class Window():
+class Window(Tk):
 
     def __init__(self):
-        self.window = Window
+        Tk.__init__(self)
+        self.window = Tk(self)
         window.title("Inscription")
         window.geometry("720x480")
         window.config(background='#4065A4')
+
+        self.info = 'tempfile.temp'
 
 
         self.pseudo_label = Label(window, text="Pseudo", font=("Helvetica", 15), bg='#4065A4', fg='white')
@@ -39,20 +42,48 @@ class Window():
 
         self.initialisation_button = Button(window, text="Initialser", font=("Helvetica", 17), bg='#4065A4', fg='white', command=initialisation).place(x=360, y=430)
 
-        self.validate_button = Button(window, text="Valider", font=("Helvetica", 17), bg='#4065A4', fg='white', command=save_info).place(x=250, y=430)
+        self.validate_button = Button(window, text="Valider", font=("Helvetica", 17), bg='#4065A4', fg='white', command=self.save_info).place(x=250, y=430)
 
         
-        def validPseudo(self, pseudo):
-        
-            i = 0 
+    def save_info(self):
 
-            if i < len(pseudo):
-                if self.pseudo[i] in string.punctuation:
-                    return True
-                return False
-            
-            else:
-                messagebox.showinfo('Information', 'This is not a valid Pseudo')
-                return False
+        if Personne.get() == "":
+            messagebox.showinfo('Information', 'Veuillez entrer le nom complet pour continuer')
+        elif password.get() == "":
+            messagebox.showinfo('Information', 'Veuillez entrer le mot de passe pour continuer')
+        elif emailadress.get() == "":
+            messagebox.showinfo('Information', "Veuillez entrer l'adresse mail pour continuer")
+        elif password_confirmation.get() == "":
+            messagebox.showinfo('Information', "Veuillez confirmer l'adresse mail pour continuer")
+        elif password.get() != password_confirmation.get():
+            messagebox.showinfo('Information', 'Mot de passe différent')
+        elif len(pseudo.get()) < 6:
+                messagebox.showinfo('Information', 'Veuillez entrer 6 caractères minimum du pseudo pour continuer')
+        elif len(pseudo.get()) > 16:
+                messagebox.showinfo('Information', 'Veuillez entrer 16 caractères maximum du pseudo pour continuer')
+        elif len(password.get()) < 8:
+                messagebox.showinfo('Information', 'Veuillez entrer 8 caractères minimum du mot de passe pour continuer')
+        elif emailadress.get() != "":
+            status2 = validEmail(emailadress.get())
+            if(status2):
+                messagebox.showinfo('Information', 'Utilisateur enregistré avec succès')
+        else:       
+            messagebox.showinfo('Information', 'Utilisateur enregistré avec succès')
 
+        with open(info, 'w') as f:
+            f.write(pseudo_entry.get()) 
+            f.write('\n') 
+            f.write(password_entry.get()) 
+            f.write('\n') 
+            f.write(emailadress_entry.get()) 
+            f.close() 
 
+    def initialisation(self):
+        pseudo.set("")
+        password.set("")
+        password_confirmation.set("")
+        emailadress.set("")
+
+window = Tk()
+my_gui = Window(window)
+window.mainloop()

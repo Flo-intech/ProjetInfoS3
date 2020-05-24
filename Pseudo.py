@@ -2,23 +2,39 @@ import string
 from tkinter import *
 from tkinter import messagebox
 
-class Pseudo:
+class Personne:
 
-    def __init__(self, pseudo, password, password_confirmation, emailadress):
-        self.pseudo = pseudo
-        self.password = password
-        self.password_confirmation = password_confirmation
-        self.emailadress = emailadress
+    def __init__(self, pseudo = StringVar(), password = StringVar(), password_confirmation = StringVar(), emailadress = StringVar()):
+        self._pseudo = pseudo
+        self.pseudo = Personne()
+        self._password = password
+        self._password_confirmation = password_confirmation
+        self._emailadress = emailadress
 
 
     def pseudo(self):
-        return self.pseudo
+            return self._pseudo
 
     def password(self):
-        return self.password
+        return self._password
 
     def password_confirmation(self):
-        return self.password_confirmation
+        return self._password_confirmation
 
-    def emailadress(self):
-        return self.emailadress
+    def emailadress(self): 
+        return self._emailadress
+
+
+
+    def validPseudo(self, pseudo):
+            
+        i = 0 
+
+        if i < len(pseudo):
+            if self.pseudo[i] in string.punctuation:
+                return True
+            return False
+            
+        else:
+            messagebox.showinfo('Information', 'This is not a valid Pseudo')
+            return False    

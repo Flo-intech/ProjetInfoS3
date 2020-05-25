@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 
 
 class Welcome:
@@ -33,7 +34,6 @@ class Window:
         self.info = 'tempfile.temp'
 
         self.pseudo = StringVar()
-        self.pseudo = StringVar()
         self.password = StringVar()
         self.password_confirmation = StringVar()
         self.emailadress = StringVar()
@@ -65,7 +65,7 @@ class Window:
 
         self.initialisation_button = Button(self.master, text="Initialser", font=("Helvetica", 17), bg='#4065A4', fg='white', command=self.initialisation).place(x=360, y=430)
 
-        self.validate_button = Button(self.master, text="Valider", font=("Helvetica", 17), bg='#4065A4', fg='white').place(x=250, y=430)
+        self.validate_button = Button(self.master, text="Valider", font=("Helvetica", 17), bg='#4065A4', fg='white', command=self.save_info).place(x=250, y=430)
 
     def initialisation(self):
         pseudo = self.pseudo.set("")
@@ -74,7 +74,42 @@ class Window:
         emailadress = self.emailadress.set("")
     
 
-       
+    def save_info(self):
+        if self.pseudo.get() == "":
+            messagebox.showinfo('Information', 'Veuillez entrer le nom complet pour continuer')
+        elif self.password.get() == "":
+            messagebox.showinfo('Information', 'Veuillez entrer le mot de passe pour continuer')
+        elif self.password_confirmation.get() == "":
+            messagebox.showinfo('Information', "Veuillez confirmer l'adresse mail pour continuer")
+        elif self.password.get() != self.password_confirmation.get():
+            messagebox.showinfo('Information', 'Mot de passe différent')
+        elif len(self.pseudo.get()) < 6:
+            messagebox.showinfo('Information', 'Veuillez entrer 6 caractères minimum du pseudo pour continuer')
+        elif len(self.pseudo.get()) > 16:
+            messagebox.showinfo('Information', 'Veuillez entrer 16 caractères maximum du pseudo pour continuer')
+        elif len(self.password.get()) < 8:
+            messagebox.showinfo('Information', 'Veuillez entrer 8 caractères minimum du mot de passe pour continuer')
+        elif self.emailadress.get() == "":
+            messagebox.showinfo('Information', "Veuillez entrer l'adresse mail pour continuer")
+        elif self.emailadress.get() != "":
+            status2 = self.validEmail(emailadress.get())
+            if(status2):
+                messagebox.showinfo('Information', 'Utilisateur enregistré avec succès')
+        else:       
+            messagebox.showinfo('Information', 'Utilisateur enregistré avec succès')
+
+    def validEmail(self, mail):
+        
+# Mise en place de la syntaxe de l'adresse mail
+# vérifie si la syntaxe du pseudo est valide 
+
+        if len(self.mail) > 7:
+            if re.match("^[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)*@[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)*(\.[a-zA-Z]{2,6})$", self.mail) != None:
+                return True
+            return False
+        else:
+            messagebox.showinfo('Information', "Cette adresse email n'est pas valide")
+            return False       
 
 class Connexion:
 
@@ -84,25 +119,46 @@ class Connexion:
         self.master.title("Connexion")
         self.master.config(background='#4065A4')
 
-        pseudo_label = Label(self.master, text="Pseudo", font=("Helvetica", 15), bg='#4065A4', fg='white')
-        pseudo_label.place(x=240, y=80)
+
+        self.pseudo_label = Label(self.master, text="Pseudo", font=("Helvetica", 15), bg='#4065A4', fg='white')
+        self.pseudo_label.place(x=240, y=80)
 
 
-        pseudo_entry = Entry(self.master, font=("Helvetica", 15), bg='#4065A4', fg='white')
-        pseudo_entry.place(x=240, y=110)
+        self.pseudo_entry = Entry(self.master, font=("Helvetica", 15), bg='#4065A4', fg='white')
+        self.pseudo_entry.place(x=240, y=110)
 
 
-        password_label = Label(self.master, text="Mot de passe", font=("Helvetica", 15), bg='#4065A4', fg='white')
-        password_label.place(x=240, y=160)
+        self.password_label = Label(self.master, text="Mot de passe", font=("Helvetica", 15), bg='#4065A4', fg='white')
+        self.password_label.place(x=240, y=160)
 
 
-        password_entry = Entry(self.master, show="*", font=("Helvetica", 15), bg='#4065A4', fg='white')
-        password_entry.place(x=240, y=190)
+        self.password_entry = Entry(self.master, show="*", font=("Helvetica", 15), bg='#4065A4', fg='white')
+        self.password_entry.place(x=240, y=190)
 
 
-        validate_button = Button(self.master, text="Valider", font=("Helvetica", 17), bg='#4065A4', fg='white').place(x=250, y=250)
+        self.validate_button = Button(self.master, text="Valider", font=("Helvetica", 17), bg='#4065A4', fg='white', command=self.check_login).place(x=250, y=250)
 
-        back_button = Button(self.master, text="Retour", font=("Helvetica", 17), bg='#4065A4', fg='white').place(x=360, y=250)
+        self.back_button = Button(self.master, text="Retour", font=("Helvetica", 17), bg='#4065A4', fg='white').place(x=360, y=250)
+
+
+        self.name = name
+        self.pwd = pwd
+
+    def check_login(self):
+        # Prendre tout le document file dans lequel non met les informations et les place dans la variable de données
+        info = 'tempfile.temp'
+        
+        with open(info) as f:
+            self.data = f.readlines() 
+            name = self.data[0].rstrip() 
+            pwd = self.data[1].rstrip() 
+    
+        if self.pseudo_entry.get() == name and self.password_entry.get() == pwd:
+            messagebox.showinfo('Information', "Utilisateur connecté")
+
+        else:
+            messagebox.showinfo('Information', "Utilisateur invalide")
+
 
 def main():
 

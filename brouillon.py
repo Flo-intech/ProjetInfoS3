@@ -12,7 +12,9 @@ class Welcome:
 
         self.login_button = Button(self.master, text="Connexion", font=("Helvetica", 17), bg='#4065A4', fg='white', width=15, command=self.change2).place(x=260, y=150)
 
-        self.register_button = Button(self.master, text="Inscription", font=("Helvetica", 17), bg='#4065A4', fg='white', width=15, command=self.change1).place(x=260, y=220)   
+        self.register_button = Button(self.master, text="Inscription", font=("Helvetica", 17), bg='#4065A4', fg='white', width=15, command=self.change1).place(x=260, y=220)  
+
+        self.invite_button = Button(self.master, text="Invité", font=("Helvetica", 17), bg='#4065A4', fg='white', width=15).place(x=260, y=290) 
 
     def change1(self):
         root2=Toplevel(self.master)

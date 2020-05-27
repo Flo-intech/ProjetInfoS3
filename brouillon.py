@@ -1,7 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
 
-
 class Welcome:
     
     def __init__(self, master):
@@ -12,7 +11,7 @@ class Welcome:
 
         self.login_button = Button(self.master, text="Connexion", font=("Helvetica", 17), bg='#4065A4', fg='white', width=15, command=self.change2).place(x=260, y=150)
 
-        self.register_button = Button(self.master, text="Inscription", font=("Helvetica", 17), bg='#4065A4', fg='white', width=15, command=self.change1).place(x=260, y=220)  
+        self.register_button = Button(self.master, text="Inscription", font=("Helvetica", 17), bg='#4065A4', fg='white', width=15, command=self.change1).place(x=260, y=220) 
 
         self.invite_button = Button(self.master, text="Invité", font=("Helvetica", 17), bg='#4065A4', fg='white', width=15).place(x=260, y=290) 
 
@@ -50,7 +49,7 @@ class Window:
         self.emailadress_label = Label(self.master, text="Adresse de messagerie", font=("Helvetica", 15), bg='#4065A4', fg='white')
         self.emailadress_label.place(x=240, y=160)
 
-        self.emailadress_entry = Entry(self.master, font=("Helvetica", 15), bg='#4065A4', fg='white')
+        self.emailadress_entry = Entry(self.master, font=("Helvetica", 15), textvariable = self.emailadress, bg='#4065A4', fg='white')
         self.emailadress_entry.place(x=240, y=190)
 
         self.password_label = Label(self.master, text="Mot de passe", font=("Helvetica", 15), bg='#4065A4', fg='white')
@@ -94,7 +93,7 @@ class Window:
         elif self.emailadress.get() == "":
             messagebox.showinfo('Information', "Veuillez entrer l'adresse mail pour continuer")
         elif self.emailadress.get() != "":
-            status2 = self.validEmail(emailadress.get())
+            status2 = self.validEmail(self.emailadress.get())
             if(status2):
                 messagebox.showinfo('Information', 'Utilisateur enregistré avec succès')
         else:       
@@ -105,8 +104,9 @@ class Window:
 # Mise en place de la syntaxe de l'adresse mail
 # vérifie si la syntaxe du pseudo est valide 
 
-        if len(self.mail) > 7:
-            if re.match("^[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)*@[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)*(\.[a-zA-Z]{2,6})$", self.mail) != None:
+        if len(mail) > 7:
+        
+            if re.match("^[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)*@[a-zA-Z0-9_\-]+(\.[a-zA-Z0-9_\-]+)*(\.[a-zA-Z]{2,6})$", mail) != None:
                 return True
             return False
         else:
@@ -115,7 +115,7 @@ class Window:
 
 class Connexion:
 
-    def __init__(self, master,):
+    def __init__(self, master):
         self.master=master
         self.master.geometry("720x480")
         self.master.title("Connexion")
@@ -143,8 +143,6 @@ class Connexion:
         self.back_button = Button(self.master, text="Retour", font=("Helvetica", 17), bg='#4065A4', fg='white').place(x=360, y=250)
 
 
-        self.name = name
-        self.pwd = pwd
 
     def check_login(self):
         # Prendre tout le document file dans lequel non met les informations et les place dans la variable de données
@@ -157,6 +155,8 @@ class Connexion:
     
         if self.pseudo_entry.get() == name and self.password_entry.get() == pwd:
             messagebox.showinfo('Information', "Utilisateur connecté")
+            self.name = name
+            self.pwd = pwd
 
         else:
             messagebox.showinfo('Information', "Utilisateur invalide")

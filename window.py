@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
+from testprojet import Mappemonde
 
 class Welcome:
     
@@ -21,6 +22,7 @@ class Welcome:
 
     
     def change2(self):
+        
         root3=Toplevel(self.master)
         Login=Connexion(root3)
 
@@ -157,6 +159,10 @@ class Connexion:
             messagebox.showinfo('Information', "Utilisateur connecté")
             self.name = name
             self.pwd = pwd
+            
+            root3=Toplevel(self.master)
+            Map=Mappemonde(root3)
+      
 
         else:
             messagebox.showinfo('Information', "Utilisateur invalide")

@@ -160,8 +160,8 @@ class Connexion:
             self.name = name
             self.pwd = pwd
             
-            root3=Toplevel(self.master)
-            Map=Mappemonde(root3)
+            self.root3=Toplevel(self.master)
+            self.Map=Mappemonde(self.root3)
       
 
         else:

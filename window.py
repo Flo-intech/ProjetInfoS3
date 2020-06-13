@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 from testprojet import Mappemonde
+from sports import *
 
 class Welcome:
     

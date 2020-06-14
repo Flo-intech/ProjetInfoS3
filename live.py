@@ -1,25 +1,9 @@
-from sports import *
+import sports
 
-class Sports:
+class Sport:
 
-    def sportslive():
+    basketball = sports.get_sport(sports.BASKETBALL)
+    print(basketball)
 
-        #Live Matched
-        all_matches = sports.all_matches()
-        baseball = all_matches['cricket']
-        print(baseball)
-        
-        
-        #Live Matched
-        matches = sports.get_sport(sports.CRICKET)
-        print(matches)
-        
-        #Football Live
-        football = sports.get_sport(sports.FOOTBALL)
-        print(football)
-        
-        
-        #basketabbl
-        
-        basktetball = sports.get_sport(sports.BASKETBALL)
-        print(basktetball)
+    football = sports.get_sport(sports.FOOTBALL)
+    print(football)

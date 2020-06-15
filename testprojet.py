@@ -57,9 +57,9 @@ class Carte(Frame):
             
 
             de=f
-            print(i)
-            print(ab+"/")
-            print(aze)
+            #print(i)
+            #print(ab+"/")
+            #print(aze)
             if self.on :
                 if i != 0:
                         self.text[i].config(text=ab)
@@ -91,11 +91,12 @@ class Carte(Frame):
         print(pays)
         print(self.pays[pays][0])
         #self.point2[pays].forget_pack()
-        for i in range (1,4) :
+        for i in range (1,5) :
+            print(i)
             self.buttonMenu[i].place(x=self.pays[pays][0],y=self.pays[pays][1]+20*(i-1))
             self.text2=self.text3[pays]
             self.texte()
-        for i in range (1,5):
+        for i in range (1,6):
             if self.azer[i]:
                 self.text[i].place(x=self.pays[pays][0]-120,y=self.pays[pays][1]+20*(i-1))
     def onExit(self):

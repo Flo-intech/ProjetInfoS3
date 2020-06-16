@@ -3,9 +3,7 @@ import string
 from tkinter import *
 from tkinter import messagebox
 import re
-from inscription import pseudo
-from inscription import password
-from inscription import emailadress
+
 
 window = Tk()
 
@@ -48,7 +46,7 @@ pseudo_label = Label(window, text="Pseudo", font=("Helvetica", 15), bg='#4065A4'
 pseudo_label.place(x=240, y=80)
 
 # champs/entrée/input
-pseudo_entry = Entry(window, textvariable = pseudo, font=("Helvetica", 15), bg='#4065A4', fg='white')
+pseudo_entry = Entry(window, font=("Helvetica", 15), bg='#4065A4', fg='white')
 pseudo_entry.place(x=240, y=110)
 
 # titre
@@ -56,7 +54,7 @@ password_label = Label(window, text="Mot de passe", font=("Helvetica", 15), bg='
 password_label.place(x=240, y=160)
 
 # champs/entrée/input
-password_entry = Entry(window, show="*", textvariable = password, font=("Helvetica", 15), bg='#4065A4', fg='white')
+password_entry = Entry(window, show="*", font=("Helvetica", 15), bg='#4065A4', fg='white')
 password_entry.place(x=240, y=190)
 
 
@@ -72,7 +70,6 @@ menu_bar = Menu(window)
 
 # creer un premier menu
 file_menu = Menu(menu_bar, tearoff=0)
-file_menu.add_command(label="Nouveau", command=pseudo)
 file_menu.add_command(label="Quitter", command=window.quit)
 menu_bar.add_cascade(label="Fichier", menu=file_menu)
 

@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 from testprojet import Mappemonde
 from sports import *
+from live import Bundesliga
 
 class Welcome:
     
@@ -19,7 +20,7 @@ class Welcome:
 
     def change1(self):
         root2=Toplevel(self.master)
-        Register=Window(root2)
+        Register=Register(root2)
 
     
     def change2(self):

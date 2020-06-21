@@ -20,7 +20,7 @@ class Welcome:
 
     def change1(self):
         root2=Toplevel(self.master)
-        Register=Register(root2)
+        Register=Window(root2)
 
     
     def change2(self):

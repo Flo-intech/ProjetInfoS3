@@ -27,3 +27,107 @@ class Mappemonde:
         self.pointFrance = Button(self.master, image=self.point, height=15, width=15).place(x=875, y=225)
         self.can1pointAlgerie = Button(self.master, image=self.point, height=15, width=15).place(x=900, y=300)
         self.pointAustralie = Button(self.master, image=self.point, height=15, width=15).place(x=1380, y=550)
+
+class Europe:
+    
+    def __init__(self, master):
+    
+        self.master=master
+        self.master.resizable(0, 0)
+        self.master.title("Europe")       
+        self.mappemonde = PhotoImage(file="europe123.png") 
+
+        self.can1 = Canvas(self.master, height=1700, width=1200)
+        self.can1.create_image(700, 400, image=self.mappemonde)      
+        self.can1.pack()
+
+        self.point = PhotoImage(file="point.png")
+        self.pointColombie = Button(self.master, image=self.point, height=15, width=15).place(x=559, y=420)
+        self.pointJapon = Button(self.master, image=self.point, height=15, width=15).place(x=1400, y=250)
+
+class SouthAmerica:
+    
+    def __init__(self, master):
+    
+        self.master=master
+        self.master.resizable(0, 0)
+        self.master.title("Amérique du Sud")       
+        self.mappemonde = PhotoImage(file="amérique-sud123.png") 
+
+        self.can1 = Canvas(self.master, height=1700, width=1200)
+        self.can1.create_image(700, 400, image=self.mappemonde)      
+        self.can1.pack()
+
+        self.point = PhotoImage(file="point.png")
+        self.pointColombie = Button(self.master, image=self.point, height=15, width=15).place(x=559, y=420)
+        self.pointJapon = Button(self.master, image=self.point, height=15, width=15).place(x=1400, y=250)
+
+class NorthAmerica:
+    
+    def __init__(self, master):
+    
+        self.master=master
+        self.master.resizable(0, 0)
+        self.master.title("Amérique du Nord")       
+        self.mappemonde = PhotoImage(file="amérique-nord123.png") 
+
+        self.can1 = Canvas(self.master, height=1700, width=1200)
+        self.can1.create_image(700, 400, image=self.mappemonde)      
+        self.can1.pack()
+
+        self.point = PhotoImage(file="point.png")
+        self.pointColombie = Button(self.master, image=self.point, height=15, width=15).place(x=559, y=420)
+        self.pointJapon = Button(self.master, image=self.point, height=15, width=15).place(x=1400, y=250)
+
+
+class Africa:
+    
+    def __init__(self, master):
+    
+        self.master=master
+        self.master.resizable(0, 0)
+        self.master.title("Afrique")       
+        self.mappemonde = PhotoImage(file="africa123.png") 
+
+        self.can1 = Canvas(self.master, height=1700, width=1200)
+        self.can1.create_image(700, 400, image=self.mappemonde)      
+        self.can1.pack()
+
+        self.point = PhotoImage(file="point.png")
+        self.pointColombie = Button(self.master, image=self.point, height=15, width=15).place(x=559, y=420)
+        self.pointJapon = Button(self.master, image=self.point, height=15, width=15).place(x=1400, y=250)
+
+class Asia:
+    
+    def __init__(self, master):
+    
+        self.master=master
+        self.master.resizable(0, 0)
+        self.master.title("Asie")       
+        self.mappemonde = PhotoImage(file="asie123.png") 
+
+        self.can1 = Canvas(self.master, height=1700, width=1200)
+        self.can1.create_image(700, 400, image=self.mappemonde)      
+        self.can1.pack()
+
+        self.point = PhotoImage(file="point.png")
+        self.pointColombie = Button(self.master, image=self.point, height=15, width=15).place(x=559, y=420)
+        self.pointJapon = Button(self.master, image=self.point, height=15, width=15).place(x=1400, y=250)
+
+class Oceanie:
+    
+    def __init__(self, master):
+    
+        self.master=master
+        self.master.resizable(0, 0)
+        self.master.title("Oceanie")       
+        self.mappemonde = PhotoImage(file="oceanie123.png") 
+
+        self.can1 = Canvas(self.master, height=1700, width=1200)
+        self.can1.create_image(700, 400, image=self.mappemonde)      
+        self.can1.pack()
+
+        self.point = PhotoImage(file="point.png")
+        self.pointColombie = Button(self.master, image=self.point, height=15, width=15).place(x=559, y=420)
+        self.pointJapon = Button(self.master, image=self.point, height=15, width=15).place(x=1400, y=250)
+

@@ -7,8 +7,9 @@ On crée une fenêtre simple qui souhaite la bienvenue à l'utilisateur.
 # On importe Tkinter
 from tkinter import *
 import tkinter as tk
-class Mappemonde:
 
+class Mappemonde:
+    
     def __init__(self, master):
     
         self.master=master
@@ -21,46 +22,36 @@ class Mappemonde:
         self.can1.pack()
 
         self.point = PhotoImage(file="point.png")
-        self.pointColombie = Button(self.master, image=self.point, height=15, width=15).place(x=559, y=420)
-        self.pointJapon = Button(self.master, image=self.point, height=15, width=15).place(x=1400, y=250)
-        self.pointUsa = Button(self.master, image=self.point, height=15, width=15).place(x=500, y=250)
-        self.pointFrance = Button(self.master, image=self.point, height=15, width=15).place(x=875, y=225)
-        self.can1pointAlgerie = Button(self.master, image=self.point, height=15, width=15).place(x=900, y=300)
-        self.pointAustralie = Button(self.master, image=self.point, height=15, width=15).place(x=1380, y=550)
+        self.pointColombie = Button(self.master, image=self.point, height=15, width=15, command=self.change_north_america).place(x=559, y=420)
+        self.pointJapon = Button(self.master, image=self.point, height=15, width=15, command=self.change_asie).place(x=1400, y=250)
+        self.pointUsa = Button(self.master, image=self.point, height=15, width=15, command=self.change_north_america).place(x=500, y=250)
+        self.pointFrance = Button(self.master, image=self.point, height=15, width=15, command=self.change_europa).place(x=875, y=225)
+        self.can1pointAlgerie = Button(self.master, image=self.point, height=15, width=15, command=self.change_africa).place(x=900, y=300)
+        self.pointAustralie = Button(self.master, image=self.point, height=15, width=15, command=self.change_oceanie).place(x=1380, y=550)
 
-class Europe:
-    
-    def __init__(self, master):
-    
-        self.master=master
-        self.master.resizable(0, 0)
-        self.master.title("Europe")       
-        self.mappemonde = PhotoImage(file="europe123.png") 
+    def change_north_america(self):
+        root1=Toplevel(self.master)
+        north_america=NorthAmerica(root1)
 
-        self.can1 = Canvas(self.master, height=1700, width=1200)
-        self.can1.create_image(700, 400, image=self.mappemonde)      
-        self.can1.pack()
+    def change_europa(self):
+        root2=Toplevel(self.master)
+        europe=Europe(root2)
 
-        self.point = PhotoImage(file="point.png")
-        self.pointColombie = Button(self.master, image=self.point, height=15, width=15).place(x=559, y=420)
-        self.pointJapon = Button(self.master, image=self.point, height=15, width=15).place(x=1400, y=250)
+    def change_africa(self):
+        root3=Toplevel(self.master)
+        africa=Africa(root3)
 
-class SouthAmerica:
-    
-    def __init__(self, master):
-    
-        self.master=master
-        self.master.resizable(0, 0)
-        self.master.title("Amérique du Sud")       
-        self.mappemonde = PhotoImage(file="amérique-sud123.png") 
+    def change_south_america(self):
+        root4=Toplevel(self.master)
+        America=SouthAmerica(root4)
 
-        self.can1 = Canvas(self.master, height=1700, width=1200)
-        self.can1.create_image(700, 400, image=self.mappemonde)      
-        self.can1.pack()
+    def change_asie(self):
+        root5=Toplevel(self.master)
+        asie=Asia(root5)
 
-        self.point = PhotoImage(file="point.png")
-        self.pointColombie = Button(self.master, image=self.point, height=15, width=15).place(x=559, y=420)
-        self.pointJapon = Button(self.master, image=self.point, height=15, width=15).place(x=1400, y=250)
+    def change_oceanie(self):
+        root6=Toplevel(self.master)
+        oceania=Oceanie(root6)
 
 class NorthAmerica:
     
@@ -79,6 +70,39 @@ class NorthAmerica:
         self.pointColombie = Button(self.master, image=self.point, height=15, width=15).place(x=559, y=420)
         self.pointJapon = Button(self.master, image=self.point, height=15, width=15).place(x=1400, y=250)
 
+class SouthAmerica:
+    
+    def __init__(self, master):
+    
+        self.master=master
+        self.master.resizable(0, 0)
+        self.master.title("Amérique du Nord")       
+        self.mappemonde = PhotoImage(file="amérique-sud123.png") 
+
+        self.can1 = Canvas(self.master, height=1700, width=1200)
+        self.can1.create_image(700, 400, image=self.mappemonde)      
+        self.can1.pack()
+
+        self.point = PhotoImage(file="point.png")
+        self.pointColombie = Button(self.master, image=self.point, height=15, width=15).place(x=559, y=420)
+        self.pointJapon = Button(self.master, image=self.point, height=15, width=15).place(x=1400, y=250)
+
+class Europe:
+    
+    def __init__(self, master):
+    
+        self.master=master
+        self.master.resizable(0, 0)
+        self.master.title("Europe")       
+        self.mappemonde = PhotoImage(file="europe123.png") 
+
+        self.can1 = Canvas(self.master, height=1700, width=1200)
+        self.can1.create_image(700, 400, image=self.mappemonde)      
+        self.can1.pack()
+
+        self.point = PhotoImage(file="point.png")
+        self.pointColombie = Button(self.master, image=self.point, height=15, width=15).place(x=559, y=420)
+        self.pointJapon = Button(self.master, image=self.point, height=15, width=15).place(x=1400, y=250)
 
 class Africa:
     
@@ -130,4 +154,3 @@ class Oceanie:
         self.point = PhotoImage(file="point.png")
         self.pointColombie = Button(self.master, image=self.point, height=15, width=15).place(x=559, y=420)
         self.pointJapon = Button(self.master, image=self.point, height=15, width=15).place(x=1400, y=250)
-

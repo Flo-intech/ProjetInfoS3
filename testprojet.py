@@ -11,34 +11,67 @@ from tkinter import *
 import tkinter as tk
 from tkinter import ttk
 from functools import partial
+import math
+class Pays:
 
+    def __init__(self,position,nom,description,sport):
+        self.position=position
+        self.nom=nom
+        self.description=description
+        self.sport=sport
+class Sport:
+
+    def __init__(self,equipe,competition,nom):
+        self.equipe=equipe
+        self.competition=competition
+        self.nom=nom
 class Carte(Frame):
 
     def __init__(self,fenetre):
         super().__init__()
         self.root=fenetre
-        self.pays={"Colombie":[309,420],'Japon':[1150,250],'USA':[250,250],'France':[625,225],'Algérie':[630,330],'Australie':[1130,550]}
-        self.text3={"Colombie":' Les sports les plus populaires en colombie sont le football et le baseball ','Japon':'Au japon de nombreux sports et arts martiaux dont le football ' ,'USA':'Aux USA Le football et le baseball ','France':'En france champion du monde de football en 1998 et handball en 1970,1981,1989,2001,2017 ','Algérie':'Le sport en Algérie le plus pratiqué et le plus populaire reste le football ','Australie':'de nombreux sports existent en australie dont le football ' }
-        self.sportsPays={"Colombie":['football','baseball'],"USA":['baseball','basketball'],"France":["football","handball"],"Algérie":["football"],"Australie":["football"],"Japon":["football"]}
-        self.couleur={"football":"blue","baseball":"red"}
-        self.liste_joueurs_pays=liste_joueurss() 
+        self.compet=False
+        self.liste_pays={}
+        self.liste_pays["Colombie"]=Pays([309,420],
+        "Colombie",
+        "Les sports les plus populaires en colombie sont le football et le baseball ",
+        ['football','baseball'])
+
+        self.liste_pays["Japon"]=Pays([1150,250],
+        "Japon",
+        "Au japon de nombreux sports et arts martiaux dont le football",
+        ["football"])
+        self.liste_pays["USA"]=Pays([250,250],
+        "USA",
+        'Aux USA Le football et le baseball ',
+        ['baseball','basketball'])
+        self.liste_pays["France"]=Pays([625,225],
+        "France",
+        'En france champion du monde de football en 1998 et handball en 1970,1981,1989,2001,2017 ',
+        ["football","handball"])
+        self.liste_pays["Algérie"]=Pays([630,330],
+        "Algérie",
+        'Le sport en Algérie le plus pratiqué et le plus populaire reste le football ',
+        ["football"])
+        self.liste_pays["Australie"]=Pays([1130,550],
+        "Australie",
+        'de nombreux sports existent en australie dont le football ',
+        ["football"])
+        self.liste_joueurs_pays=liste_joueurss()
+        for i in self.liste_pays:
+            for j in range(0,len(self.liste_pays[i].sport)):
+                self.liste_pays[i].sport[j]=Sport(self.liste_joueurs_pays[self.liste_pays[i].nom][self.liste_pays[i].sport[j]],self.liste_joueurs_pays[self.liste_pays[i].nom]["competition_"+self.liste_pays[i].sport[j]],self.liste_pays[i].sport[j]) 
+                print(self.liste_pays[i].sport)
         #print(self.liste_role)
         self.selected_sports_pays={}
-        for i in self.sportsPays:
+        for i in self.liste_pays:
             z={}
-            for j in self.sportsPays[i]:
+            for j in self.liste_pays[i].sport:
                 z.update({j:False})
             self.selected_sports_pays.update({i:z})
         print(self.selected_sports_pays)
         self.text=[0,0,0,0,0,0]
         self.list_label=[]
-        
-        
-        #self.buttonMenu1 = Button(fenetre, height=1, width=15, text="Match en direct")
-        #self.buttonMenu2 = Button(fenetre,height=1, width=15, text="Compétitions")
-        #self.buttonMenu3 = Button(fenetre,height=1, width=15, text="Equipes")
-        #self.buttonMenu4 = Button(fenetre,height=1, width=15, text="Catégories")
-        
         self.initUI()
 
 
@@ -98,51 +131,30 @@ class Carte(Frame):
         self.on=True
     
     def selection(self):
-            if self.selected_sports_pays[self.paysActuel]["baseball"]:
+            if self.selected_sports_pays[self.paysActuel.nom]["baseball"]:
                 self.bouton_sports_colombie[1].config(background='white')
             else :
                 self.bouton_sports_colombie[1].config(background=self.couleur["baseball"])
-            if self.selected_sports_pays[self.paysActuel]["football"]:
+            if self.selected_sports_pays[self.paysActuel.nom]["football"]:
                 self.bouton_sports_colombie[0].config(background='white')
             else :
                 self.bouton_sports_colombie[0].config(background=self.couleur["football"])
 
-    def competition(self):
-        self.ligne=True
-        a=0
-        c=1
-        g=1
-        height=len(self.competition_football)
-        for i in range(1,height+1): #Rows
-                
-                try :
-                    self.list_label[a].config(text=self.competition_football[a])
-
-                except:
-                    if len(self.list_label)% 23==0 : #and self.ligne:
-                        self.ligne=False
-                        g=g+1
-                        c=2
-                    b = Label(self.new, text=self.competition_football[a])
-                    self.list_label.append(b)
-                    b.grid(row=c, column=g) 
-                a=a+1
-                c=c+1
     def rec(self,menu):
         if isinstance (menu,list):
             for k in menu:
                 self.rec(k)
         elif isinstance (menu,dict):
             for l in menu:
-                if l ==self.sport_Actuel or l in self.liste_joueurs_pays[self.paysActuel][self.sport_Actuel]:
+                if l ==self.sport_Actuel or l in self.liste_joueurs_pays[self.paysActuel.nom][self.sport_Actuel]:
                     self.a=True
                 else :
                     self.a=False
                 if self.a:
                     self.liste_role[self.g]=l
                     self.g=self.g+1
-                    print("*"+l)
-                print ("//"+l)
+                    print("*"+str(l))
+                print ("//"+str(l))
                 self.rec(menu[l])
         else:
             print("/"+menu)
@@ -175,10 +187,10 @@ class Carte(Frame):
             #self.p.grid()
             
             #self.p.grid()
-            self.selected_sports_pays[self.paysActuel]["football"]=True
-            self.selected_sports_pays[self.paysActuel]["baseball"]=False
+            self.selected_sports_pays[self.paysActuel.nom]["football"]=True
+            self.selected_sports_pays[self.paysActuel.nom]["baseball"]=False
             self.selection()
-            height = len(self.liste_joueurs_pays[self.paysActuel][sportss])
+            height = len(self.liste_joueurs_pays[self.paysActuel.nom][sportss])
             for i in range(1,height+1): #Rows
                 
             #for j in range(width): #Columns
@@ -186,19 +198,19 @@ class Carte(Frame):
                 
                 
                 try :
-                    self.list_label[a].config(text=self.liste_joueurs_pays[self.paysActuel][sportss][a])
+                    self.list_label[a].config(text=self.liste_joueurs_pays[self.paysActuel.nom][sportss][a])
                     #print('yo')
                 except:
                     #print(self.list_label)
                     #print('yo2')
-                    b = Label(self.new, text=self.liste_joueurs_pays[self.paysActuel][sportss][a])
+                    b = Label(self.new, text=self.liste_joueurs_pays[self.paysActuel.nom][sportss][a])
                     self.list_label.append(b)
                     b.grid(row=i, column=1) 
                 a=a+1
         else :
             
-            self.selected_sports_pays[self.paysActuel]["baseball"]=True
-            self.selected_sports_pays[self.paysActuel]["football"]=False
+            self.selected_sports_pays[self.paysActuel.nom]["baseball"]=True
+            self.selected_sports_pays[self.paysActuel.nom]["football"]=False
             self.selection()
             height = len(liste_joueurs_baseball["Pitchers"])
             #self.b.forget_grid()
@@ -220,11 +232,130 @@ class Carte(Frame):
                 a=a+1
             for i in range (height,len(self.list_label)):
                 self.list_label[i].config(text="")
-        if self.selected_sports_pays[self.paysActuel]["football"]:
+        if self.selected_sports_pays[self.paysActuel.nom]["football"]:
             self.bouton_sports_colombie[2].grid(row=0,column=2)
         else :
             self.bouton_sports_colombie[2].grid_forget()
+    def show_competition(self):
+        liste=["Huitièmes de finale","Quarts de finale", "Demi-finales","Finale"]
+        self.compet=True
+        image_n=PhotoImage(file="carre_noir.png")
+        a=0
+        b=0
+        c=-1
+        liste_label_rang={}
+        liste_label=[]
+        liste_label_dim=[]
+        self.liste_label_noir=[]
+        self.liste_label_to_forget=[]
+        self.listBox.grid_forget()
+        self.titre_label.grid_forget()
+        for i in self.liste_boutons_competitions:
+            i.grid_forget()
+        for j in self.bouton_sports_pays:
+            j.grid_forget()
+        for i in range (0,len(self.paysActuel.sport)):
+            print("***")
+            b=b+1
+            self.bouton_sports_pays[i].config(text=self.paysActuel.sport[i].nom,command =self.Callback(self.buttonMenu[i]))
+            self.bouton_sports_pays[i].place(x=b*150,y=0)
+        for i in liste:
+            liste_label=[]
+            liste_label_dim=[]
+            c=c+1
+            e=0
+            h=0
+            d=[0,1,3,10]
+            g=[1,4,11,0]
+            f=g[c]
+            a=d[c]
+            for j in self.competition2[i]:
+                e=e+1
+                h=h+1
+                if h%3==0:
+                    h=h+1
+                    e=e+f
+                liste_label.append((100*c,(a+e)*20))
+                label=Label(self.new,text=j,anchor='w')
+                label.place(x=100*c,y=(a+e)*20)
+                self.liste_label_to_forget.append(label)
+                label.update()
+                hauteur=label.winfo_height()
+                largeur=label.winfo_width()
+                liste_label_dim.append((largeur,hauteur))
+                print(str(liste_label_dim)+str(liste_label))
+            liste_label_rang[i]=[liste_label,liste_label_dim]
+        #Button(self.new,text="yo2",background='red').place(x=250,y=250)
+        #Button(self.new,text="yo3",background="yellow").place(x=0,y=0)
+        #place 
+        #100=30
+        #print(liste_label)
+        def Path(a,z,e):
+            if max(e,z)==e:
+                    lm=9
+                    aj=0
+            else :
+                    aj=3
+                    lm=-9
+            for i in range (0,2):
+                aa=Label(self.new,background='black',image=image_n,width=5,height=5)
+                aa.place(x=a+i*9,y=z)#(9,9)
+                self.liste_label_noir.append(aa)
+            for j in range (0,round((max(e,z)-min(e,z))/9)+aj):
+                ab=Label(self.new,background='black',image=image_n,width=5,height=5)
+                ab.place(x=a+i*9,y=z+j*lm)
+                self.liste_label_noir.append(ab)
+            for r in range (i,i+2):
+                ac=Label(self.new,background='black',image=image_n,width=5,height=5)
+                ac.place(x=a+r*9,y=z+j*lm)#(9,9)
+                self.liste_label_noir.append(ac)
+        for l in range (0,len(liste)-1):
+            for i in range (0,len(self.competition2[liste[l]])-1,2):
+                g=self.competition2[liste[l]][i]
+                h=self.competition2[liste[l]][i+1]
+                g=g.split()
+                h=h.split()
+                print(g)
+                print(h)
+                if int(g[1])>int(h[1]):#1=liste_label_dim #0=liste_label
+                    print("****"+str(int(i/2)))
+                    pos_depart_x=liste_label_rang[liste[l]][0][i][0]+liste_label_rang[liste[l]][1][i][0]
+                    pos_depart_y=liste_label_rang[liste[l]][0][i][1]+math.floor(liste_label_rang[liste[l]][1][i][1]/2)
+                    pos_fin_y=liste_label_rang[liste[l+1]][0][int(i/2)][1]+liste_label_rang[liste[l+1]][1][int(i/2)][1]
+                    print(pos_depart_x,pos_depart_y,pos_fin_y)
+                    Path(pos_depart_x,pos_depart_y,pos_fin_y)
+                elif int(g[1])==int(h[1]):
+                    if int(g[2])>int(h[2]):#1=liste_label_dim #0=liste_label
+                        print("****"+str(int(i/2)))
+                        pos_depart_x=liste_label_rang[liste[l]][0][i][0]+liste_label_rang[liste[l]][1][i][0]
+                        pos_depart_y=liste_label_rang[liste[l]][0][i][1]+math.floor(liste_label_rang[liste[l]][1][i][1]/2)
+                        pos_fin_y=liste_label_rang[liste[l+1]][0][int(i/2)][1]+liste_label_rang[liste[l+1]][1][int(i/2)][1]
+                        print(pos_depart_x,pos_depart_y,pos_fin_y)
+                        Path(pos_depart_x,pos_depart_y,pos_fin_y)
+                    else :
+                        pos_depart_x=liste_label_rang[liste[l]][0][i+1][0]+liste_label_rang[liste[l]][1][i+1][0]
+                        pos_depart_y=liste_label_rang[liste[l]][0][i+1][1]+math.floor(liste_label_rang[liste[l]][1][i+1][1]/2)
+                        pos_fin_y=liste_label_rang[liste[l+1]][0][int((i+1)/2)][1]+liste_label_rang[liste[l+1]][1][int((i+1)/2)][1]
+                        #print(self.competition2[liste[1]][int((i+1)/2)])
+                        print(pos_depart_x,pos_depart_y,pos_fin_y)
+                        Path(pos_depart_x,pos_depart_y,pos_fin_y)
+
+                else :
+                    pos_depart_x=liste_label_rang[liste[l]][0][i+1][0]+liste_label_rang[liste[l]][1][i+1][0]
+                    pos_depart_y=liste_label_rang[liste[l]][0][i+1][1]+math.floor(liste_label_rang[liste[l]][1][i+1][1]/2)
+                    pos_fin_y=liste_label_rang[liste[l+1]][0][int((i+1)/2)][1]+liste_label_rang[liste[l+1]][1][int((i+1)/2)][1]
+                    #print(self.competition2[liste[1]][int((i+1)/2)])
+                    print(pos_depart_x,pos_depart_y,pos_fin_y)
+                    Path(pos_depart_x,pos_depart_y,pos_fin_y)
+            
     def Sports(self,sports):
+        if self.compet:
+            self.compet=False
+            for i in self.liste_label_to_forget:
+                i.place_forget()
+            for j in self.liste_label_noir:
+                j.place_forget()
+
         #sport=self.sportsPays[self.paysActuel][sport]
         #self.selected_Colombie[sport]=True
         #for i in self.sportsPays[self.paysActuel]:
@@ -236,46 +367,48 @@ class Carte(Frame):
         except:
             self.new = tk.Toplevel(self.root)
         self.new.geometry('500x500')
-        #self.p = PanedWindow(self.new)
-        #couleur=['blue','red','green']
-        #j=0
-        #sport=["football","baseball","cyclisme"]
-        #self.p.pack(side=TOP, expand=Y, fill=BOTH, pady=2, padx=2)
-        #self.bouton_sports_colombie=[Button(self.new, text=self.sportsPays['Colombie'][0], background=couleur[0], anchor=CENTER,command= lambda : self.equipe(sport[0])),
-        #Button(self.new, text=self.sportsPays['Colombie'][1], background=couleur[1], anchor=CENTER,command= lambda : self.equipe(sport[1])),
-        #Button(self.new, text=self.sportsPays['Colombie'][2], background=couleur[2], anchor=CENTER,command= lambda : self.equipe(sport[2])),
-        #Button(self.new, text='mondial de foot des -20 ans', background='yellow', anchor=CENTER,command= self.competition)]
-        #self.bouton_sports_colombie[0].grid(row=0,column=0)
-        #self.bouton_sports_colombie[1].grid(row=0,column=1)
         self.sport_Actuel=sports
         self.a=False
         self.g=0
         self.liste_role=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-        self.rec(self.liste_joueurs_pays[self.paysActuel])
+        self.rec(self.liste_joueurs_pays[self.paysActuel.nom])
         self.liste_role[0]=0
+        ad=0
         #self.liste_role[1]=0
-        label = tk.Label(self.new, text=sports+"'s team of "+self.paysActuel, font=("Arial",30)).grid(row=0, columnspan=3)
+        print("*"+sports+"*")
+        self.titre_label = Label(self.new, text=sports+"'s team of "+self.paysActuel.nom, font=("Arial",30))
+        self.titre_label.grid(row=0, columnspan=3)
         #create Treeview with 3 columns
         cols = ('Position', 'Name', 'Role')
-        listBox = ttk.Treeview(self.new, columns=cols, show='headings')
+        self.listBox = ttk.Treeview(self.new, columns=cols, show='headings')
         # set column headings
         for col in cols:
-            listBox.heading(col, text=col)    
-        listBox.grid(row=1, column=0, columnspan=2)
+            self.listBox.heading(col, text=col)    
+        self.listBox.grid(row=1, column=0, columnspan=4)
         for i in self.liste_role:
             if i !=0:
-                for j in self.liste_joueurs_pays[self.paysActuel][self.sport_Actuel][i]:
+                for j in self.liste_joueurs_pays[self.paysActuel.nom][self.sport_Actuel][i]:
                     h=j.split()
-                    listBox.insert("", "end", values=(h[0],h[1], i)) 
-        self.bouton_sports_pays=[Button(self.new, text="Close", width=15),
-        Button(self.new, text="Close", width=15),
-        Button(self.new, text="Close", width=15)]        
-        for i in range (0,len(self.sportsPays[self.paysActuel])):
-            self.bouton_sports_pays[i].config(text=self.sportsPays[self.paysActuel][i],command =self.Callback(self.buttonMenu[i]))
+                    self.listBox.insert("", "end", values=(h[0],h[1], i)) 
+        self.liste_boutons_competitions=[Button(self.new),Button(self.new),Button(self.new),Button(self.new)]
+        self.bouton_sports_pays=[Button(self.new, text="Close"),
+        Button(self.new, text="Close"),
+        Button(self.new, text="Close")]        
+        for i in range (0,len(self.paysActuel.sport)):
+            self.bouton_sports_pays[i].config(text=self.paysActuel.sport[i].nom,command =self.Callback(self.buttonMenu[i]))
             self.bouton_sports_pays[i].grid(row=4,column=i)
+            for j in range (0,len( self.paysActuel.sport[i].competition)):#self.liste_joueurs_pays[self.paysActuel.nom]["competition_"+
+                print(str(i)+"*"+str(j))
+                ad=ad+1
+                self.liste_boutons_competitions[ad].config( text=self.paysActuel.sport[i].competition[j][0], command= lambda i=i,j=j : self.competition(self.paysActuel.sport[i].competition[j]))
+                print(self.liste_boutons_competitions[j])
+                self.liste_boutons_competitions[ad].grid(row=5+j, column=i)
         #showScores = tk.Button(scores, text="Show scores", width=15, command=show).grid(row=4, column=0)
         #closeButton = tk.Button(scores, text="Close", width=15, command=exit).grid(row=4, column=1)
         #self.equipe(sports)
+    def competition(self,C):
+        self.competition2=C
+        return self.show_competition()
     def Callback(self,button):
         return lambda: self.Sports(button["text"])
     def mouse_position(self,e):
@@ -289,28 +422,29 @@ class Carte(Frame):
     def ShowMenu(self,pays):
         print('yo')
         print(pays)
-        print(self.pays[pays][0])
         liste=[False,False]
-        self.paysActuel=pays
+        self.paysActuel=self.liste_pays[pays]
         self.liste=[]
-        for i in range (0,len(self.sportsPays[pays])):
+        for i in range (0,len(self.paysActuel.sport)):
             #self.buttonMenu1 = Button(fenetre, height=1, width=15, text="Match en direct")
             #self.buttonMenu.append(self.buttonMenu1)
             #print(self.buttonMenu[i])
-            self.buttonMenu[i].config(text=self.sportsPays[pays][i],command =self.Callback(self.buttonMenu[i]))
+            self.buttonMenu[i].config(text=self.paysActuel.sport[i].nom,command =self.Callback(self.buttonMenu[i]))
             #self.buttonMenu[i].bind("<Button-1>", self.Sports(self.sportsPays[pays][i]))
             
         #self.point2[pays].forget_pack()
-        self.text2=self.text3[pays]
+        print("yo36")
+        self.text2=self.paysActuel.description
+        print(self.text2)
         self.texte()
-        for i in range (0,len(self.sportsPays[pays])) :
+        for i in range (0,len(self.paysActuel.sport)) :
             liste[i]=True
-            self.buttonMenu[i].place(x=self.pays[pays][0],y=self.pays[pays][1]+20*(i))
-        for i in range (len(self.sportsPays[pays]),len(liste)):
+            self.buttonMenu[i].place(x=self.paysActuel.position[0],y=self.paysActuel.position[1]+20*(i))
+        for i in range (len(self.paysActuel.sport),len(liste)):
             self.buttonMenu[i].place_forget() 
         for i in range (1,6):
             if self.azer[i]:
-                self.text[i].place(x=self.pays[pays][0]-120,y=self.pays[pays][1]+20*(i-1))
+                self.text[i].place(x=self.paysActuel.position[0]-120,y=self.paysActuel.position[1]+20*(i-1))
     def onExit(self):
 
         self.quit()

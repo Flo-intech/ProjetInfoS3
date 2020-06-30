@@ -1,5 +1,6 @@
 
 def liste_joueurss():
+    d=["Huitièmes de finale","Quarts de finale", "Demi-finales","Finale"]
 
     liste_joueurs_baseball_colombie={"Pitchers":['Ángel Vílchez','Carlos Mario Díaz','Dewin Pérez','Ezequiel Zabaleta','Hernán Guzmán','Hernando Chiquillo','Jaider Rocha','José Calero','Luis Yendis','Luis Barrios','Luis Ortega','Randy Consuegra'],
         "Catchers":['Álvaro Noriega [es]','Christian Correa','Jair Camargo [es]'],'Infielders':['Derwin Pomare [es]','Héctor Acuña','Milton Ramos','Reynaldo Rodriguez','Samir Caraballo','Sneider Batista'],
@@ -207,103 +208,157 @@ def liste_joueurss():
 "15	El Arabi Hilal Soudani"
 ]}
     #USA,Colombie,France,Japon
-    competition_football_20ans=[
-    "Tahiti U-20 0 - 3 Senegal U-20",
-"Mexique U-20 1 - 2 Italie U-20",
-"Poland U-20 0 - 2 Colombie U-20",
-"Japan U-20 1 - 1 Equateur U-20",
-"24/05/2019",
-"Honduras U-20 0 - 5 Nouvelle Zélande U-20",
-"Qatar U-20 0 - 4 Nigeria U-20",
-"Uruguay U-20 3 - 1 Norway U-20",
-"Ukraine U-20 2 - 1 Etats-Unis U-20",
-"25/05/2019",
-"Portugal U-20 1 - 0 Corée du Sud U-20",
-"France U-20 2 - 0 Arabie saoudite U-20",
-"Panama U-20 1 - 1 Mali U-20",
-"Argentine U-20 5 - 2 South Africa U-20",
-"26/05/2019",
-"Mexique U-20 0 - 3 Japan U-20",
-"Senegal U-20 2 - 0 Colombie U-20",
-"Equateur U-20 0 - 1 Italie U-20",
-"Poland U-20 5 - 0 Tahiti U-20",
-"27/05/2019",
-"Honduras U-20 0 - 2 Uruguay U-20",
-"Qatar U-20 0 - 1 Ukraine U-20",
-"Norway U-20 0 - 2 Nouvelle Zélande U-20",
-"Etats-Unis U-20 2 - 0 Nigeria U-20",
-"28/05/2019",
-"Panama U-20 0 - 2 France U-20",
-"Portugal U-20 0 - 2 Argentine U-20",
-"Arabie saoudite U-20 3 - 4 Mali U-20",
-"South Africa U-20 0 - 1 Corée du Sud U-20",
-"29/05/2019",
-"Italie U-20 0 - 0 Japan U-20",
-"Equateur U-20 1 - 0 Mexique U-20",
-"Colombie U-20 6 - 0 Tahiti U-20",
-"Senegal U-20 0 - 0 Poland U-20",
-"30/05/2019",
-"Nouvelle Zélande U-20 0 - 2 Uruguay U-20",
-"Norway U-20 12 - 0 Honduras U-20",
-"Nigeria U-20 1 - 1 Ukraine U-20",
-"Etats-Unis U-20 1 - 0 Qatar U-20",
-"31/05/2019",
-"Mali U-20 2 - 3 France U-20",
-"Arabie saoudite U-20 1 - 2 Panama U-20",
-"Corée du Sud U-20 2 - 1 Argentine U-20",
-"South Africa U-20 1 - 1 Portugal U-20"]
- #colombie,france,Japon
-    competition_football_mondial_2018=[
-   
-    "Drapeau : Uruguay Uruguay	2",
- 
- 	"Drapeau : Portugal Portugal	1",	 
- 	"Drapeau : Uruguay Uruguay	0",
- 	"30 juin à Kazan",
- 	" 	Drapeau : France France	2",	 
- 	"Drapeau : France France	4",
- 	"6 juillet à Kazan",
- 	"Drapeau : Argentine Argentine	3",	 
- 	"Drapeau : France France	1",
- 	"2 juillet à Samara",
- 	" 	Drapeau : Belgique Belgique	0",	 
- 	"Drapeau : Brésil Brésil	2",
- 	"11 juillet à Moscou (Stade Loujniki)",
- 	"Drapeau : Mexique Mexique	0",
- 	"Drapeau : Brésil Brésil	1",
- 	"2 juillet à Rostov-sur-le-Don",
- 	" 	Drapeau : Belgique Belgique	2",	 
- 	"Drapeau : Belgique Belgique	3",
- 	"7 juillet à Sotchi",
- 	"Drapeau : Japon Japon	2",	 
- 	"Drapeau : France France	4",
- 	"1er juillet à Moscou (Stade Loujniki)",
- 	" 	Drapeau : Croatie Croatie	2",
- 	"Drapeau : Espagne Espagne	1ap (3)",
+    competition_football_20ans={
+       0: "competition de football mondial des -20ans 2019",
+       d[0]:[
+ "Colombie 1 5",#1
+ "New_Zealand 1 4",#1		
+ "Ukraine 4",#1
+ "Panama	1",#1	
  	
- 	"Drapeau : Russie Russie	1 tab(4)",	 
- 	"Drapeau : Russie Russie	2ap (3)",
- 	"1er juillet à Nijni Novgorod",
- 	" 	Drapeau : Croatie Croatie	2 tab(4)",	 
- 	"Drapeau : Croatie Croatie	1ap (3)",
- 	"7 juillet à Samara",
- 	"Drapeau : Danemark Danemark	1 tab(2)",	 
- 	"Drapeau : Croatie Croatie	2 ap",
- 	"3 juillet à Saint-Pétersbourg",
- 	" 	Drapeau : Angleterre Angleterre	1",	 
- 	"Drapeau : Suède Suède	1",
- 	
- 	"Drapeau : Suisse Suisse	0	 	Match pour la 3e place",
- 	"Drapeau : Suède Suède	0",
- 	"3 juillet à Moscou (Stade du Spartak)	14 juillet à Saint-Pétersbourg",
- 	" 	Drapeau : Angleterre Angleterre	2",
- 	"Drapeau : Colombie Colombie	1ap (3)	Drapeau : Belgique Belgique	2",
- 	 
- 	"Drapeau : Angleterre Angleterre	1 tab(4)	 	Drapeau : Angleterre Angleterre	0"]
+ "Italy 1",#1
+ "Poland 0",#1	
 
-    return {'Colombie':{'baseball':liste_joueurs_baseball_colombie,'football':liste_joueurs_football_colombie},
-    'USA':{'baseball':liste_joueurs_baseball_USA,'basketball':liste_joueurs_basketball_USA},
-    'Japon':{'football':liste_joueurs_football_japon},
-    'France':{'football':liste_joueurs_football_france,'handball':liste_joueurs_handball_france},
-    'Australie':{'football':liste_joueurs_football_australie},
-    'Algérie':{'football':liste_joueurs_football_algerie}}
+ "Argentina 2 4",#1
+ "Mali 2 5",#1
+
+ "France 2",#1	
+ "United States 3",#1	
+
+ "Uruguay 1",#1
+ "Ecuador 3",#1	
+
+ "Japan 0",#1
+ "South Korea 1",#1	
+
+ "Senegal 2",#1
+ "Nigeria 1"],#1
+ d[1]:[
+ "Colombia 0",#2
+ "Ukraine 1",#2
+  "Italy 4",#2 
+ "Mali 2",#2
+ "United States 1",#2
+"Ecuador 2",#2
+"South Korea 3 3",#2
+"Senegal 3 2"],#2
+d[2]:[
+"Ukraine 1",#3
+"Italy 0",#3
+"Ecuador 0",#3
+"South Korea 1"],#3
+d[3]:[
+"Ukraine 3",#4
+"South Korea 1"]}#4
+ #colombie,france,Japon
+    competition_football_mondial_2018={
+    0:"competition de football du mondial 2018",
+   d[0]:[
+    " Uruguay 2",#1
+ 	" Portugal 1",	#1 
+ 	" France	4",#1
+ 	" Argentine	3",#1	 
+ 	" Brésil	2",#1
+ 	" Mexique 0",#1
+ 	" Belgique 3",#1
+ 	" Japon 2",#1	 
+ 	" Espagne 1 3",#1
+ 	" Russie	1 4",#1	 
+ 	" Croatie 1 3",#1
+ 	" Danemark 1 2",#1	 
+ 	" Suède 1",#1
+ 	" Suisse 0",#1
+ 	" Colombie 1 3",#1
+ 	" Angleterre 1 4"],#1
+    d[1]:[
+    " Uruguay 0",#2
+ 	" France	2",#2
+    	" Brésil	1",#2
+ 	" Belgique 2",#2
+     	" Russie	2 3",#2
+ 	" Croatie 2 4",#2
+     	" Suède	0",#2
+ 	" Angleterre 2"],#2
+    d[2]:[
+     	" France	1",#3
+ 	" Belgique 0",#3
+     	"Croatie	2",#3
+ 	" Angleterre 1"],#3
+    d[3]:[
+     	" France	4",#4
+ 	" Croatie 2"]}#4
+    competition_football_australie=[
+        "Australie : A-League 2019",
+        "Vendredi 06 décembre 2019",
+"09:30	Terminé	Melbourne HeartMelbourne Heart0 - 3Perth GloryPerth Glory",	 
+"Samedi 07 décembre 2019",
+"07:00	Terminé	Wellington PhoenixWellington Phoenix2 - 1Western Sydney WanderersWestern Sydney Wanderers",	 
+"09:30	Terminé	SydneySydney5 - 1Brisbane RoarBrisbane Roar",
+"Dimanche 08 décembre 2019",
+"06:00	Terminé	Western UnitedWestern United3 - 1Melbourne VictoryMelbourne Victory",	 
+"08:00	Terminé	Adelaide UnitedAdelaide United2 - 1Newcastle JetsNewcastle Jets",	 
+"Australie : National Youth League - Classement"
+    ]
+    competition_football_algerie=[
+        "algerie division 1 2019",
+        "Samedi 07 décembre 2019",
+"15:00	Terminé	NA Hussein DeyNA Hussein Dey0 - 1NC MagraNC Magra",	 
+"15:00	Terminé	CR BelouizdadCR Belouizdad1 - 0JS SaouraJS Saoura",	 
+"15:00	Terminé	USM Bel AbbèsUSM Bel Abbès3 - 1MC AlgerMC Alger", 
+"15:00	Terminé	ES SétifES Sétif4 - 0AS Aïn M'lilaAS Aïn M'lila",	 
+"16:00	Terminé	US BiskraUS Biskra0 - 0CA Bordj Bou ArreridjCA Bordj Bou Arreridj"
+
+    ]
+    competition_handball_2017={
+    0:"competition handball 2017",
+    "Huitièmes de finale":[
+    " Espagne 28",#1
+    " Brésil 27",#1
+    " Égypte 19",#1
+ 	" Croatie 21",#1
+ 	
+    " Macédoine	24",#1
+ 	" Norvège 34",#1
+    " Danemark	25",#1
+ 	" Hongrie 27",#1
+    " France 31",#1
+ 	 
+ 	" Islande 25",#1
+    " Suède 41",#1
+ 	" Biélorussie 22",#1
+    " Slovénie	32",#1
+ 	" Russie 26",#1
+    " Allemagne 20",#1	 
+ 	" Qatar	21"],#1	 	
+ 	
+    "Quarts de finale":[	
+    "Espagne 29",#2
+    "Croatie 30",#2
+    "Norvège 31",#2
+ 	"Hongrie 28",#2 
+ 	
+    "France 33",#2
+ 	"Suède 30",#2 
+ 	"Slovénie 32",#2
+ 	"Qatar 30"],#2
+    
+    "Demi-finales":[ 
+ 	"Croatie 25",#3
+ 	"Norvège 28",#3
+    "France 31",#3
+ 	"Slovénie 25"],#3
+ 	
+    "Finale":[	 
+ 	"Norvège 26",#4
+ 	"France 33"],#4
+    "Troisième place":[
+ 	"Croatie 30",#4	
+    "Slovénie 31"]} #4 
+  
+
+    return {'Colombie':{'baseball':liste_joueurs_baseball_colombie,'football':liste_joueurs_football_colombie,"competition_football":[competition_football_20ans,competition_football_mondial_2018],"competition_baseball":[]},
+    'USA':{'baseball':liste_joueurs_baseball_USA,'basketball':liste_joueurs_basketball_USA,"competition_football":[competition_football_20ans],"competition_basketball":[],"competition_baseball":[]},
+    'Japon':{'football':liste_joueurs_football_japon,"competition_football":[competition_football_20ans,competition_football_mondial_2018]},
+    'France':{'football':liste_joueurs_football_france,'handball':liste_joueurs_handball_france,"competition_football":[competition_football_mondial_2018,competition_football_20ans],"competition_handball":[competition_handball_2017]},
+    'Australie':{'football':liste_joueurs_football_australie,"competition_football":[competition_football_australie]},
+    'Algérie':{'football':liste_joueurs_football_algerie,"competition_football":[competition_football_algerie]}}

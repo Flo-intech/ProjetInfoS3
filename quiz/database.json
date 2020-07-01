@@ -1,6 +1,6 @@
 [
   {
-    "question": "Quel est le pays à avoir gagné la première coupe du monde", 
+    "question": "1/ Quel est le pays à avoir gagné la première coupe du monde", 
     "options": [
       "a.Angleterre", 
       "b.Brésil", 
@@ -10,7 +10,7 @@
     "answer": 3
   }, 
   {
-    "question": "Quel Tennisman a gagné Roland Garros 2019", 
+    "question": "2/ Quel Tennisman a gagné Roland Garros 2019", 
     "options": [
       "a. Roger Federer", 
       "b.Novak Djokovic", 
@@ -20,7 +20,7 @@
     "answer": 2
   }, 
   {
-    "question": "Où s'effectue l'engagement au début d'un match", 
+    "question": "3/ Où s'effectue l'engagement au début d'un match", 
     "options": [
       "a.Derrière le panier", 
       "b.Sur une touche", 
@@ -30,7 +30,7 @@
     "answer": 2
   }, 
   {
-    "question": "Le record du monde de 200 mètres nage libre est détenu par Paul Biedermann, de combien est-il ?", 
+    "question": "4/ Le record du monde de 200 mètres nage libre est détenu par Paul Biedermann, de combien est-il ?", 
     "options": [
       "a.1 min 42s", 
       "b.1 min 38s", 
@@ -38,16 +38,246 @@
       "d.1 min 46s"
     ], 
     "answer": 0
-  }, 
+  },
   {
-    "question": "AAAAA ?", 
+    "question": "5/ De combien de joueurs se compose une équipe de basket-ball ?",
     "options": [
-      "a.BBBBB", 
-      "b.CCCCC", 
-      "c.DDDD", 
-      "d.EEEEEE"
-    ], 
+      "a.4",
+      "b.5",
+      "c.6",
+      "d.7"
+    ],
     "answer": 1
+  },
+  {
+    "question": "6/ Split, Spare, Strike... Vous pouvez entendre ces termes..",
+    "options": [
+      "a.A la pétanque",
+      "b.Au Curling",
+      "c.Au Bowling",
+      "d.Au frisbee"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "7/ Pour quel sport les arbitres sont-ils obligés d'utiliser la langue française?",
+    "options": [
+      "a.Le football",
+      "b.Le hockey",
+      "c.Le baseball",
+      "d.L'escrime"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "8/ De ces quatre disciplines, laquelle utilise la plus petite surface de jeu ?",
+    "options": [
+      "a.Le tennis",
+      "b.Le basket-ball",
+      "c.Le volley-ball",
+      "d.Le handball"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "9/ Si vous entrez dans un magasin de sport en demandant un sand wedge, vous ressortirez avec... ?",
+    "options": [
+      "a.Un club de golf",
+      "b.Une cravache",
+      "c.Une planche à voile",
+      "d.Une tranche de Jambon"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "9/ Au judo, quel est le grade le plus élevé parmi ces ceintures ?",
+    "options": [
+      "a.Bleue",
+      "b.Orange",
+      "c.Verte",
+      "d.Jaune"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "10/ Dans quelle discipline doit-on toucher une cible de 5 cm de diamètre ?",
+    "options": [
+      "a.Au tir à l'arc",
+      "b.Au ball -trap",
+      "c.Aux fléchettes",
+      "d.En parachutisme"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "11/ 76 cm de haut, c'est... ?",
+    "options": [
+      "a.Une haie d'athlétisme",
+      "b.Un but de hockey sur glace",
+      "c.Une table de ping-pong",
+      "d.Une poutre de gymnastique"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "12/ A quel sport doit-on jouer pendant 2 mi-temps de 40 minutes  ?",
+    "options": [
+      "a.Au football",
+      "b.Au rugby",
+      "c.Au handall",
+      "d.Au basket-ball"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "13/  Quel pays est spécialiste du lancer de tronc d'arbre ou de poutre  ?",
+    "options": [
+      "a.L'Irlande",
+      "b.L'Australie",
+      "c.Le Canada",
+      "d.L'Ecosse"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "14/ A l'origine, avec quel matériau étaient faites les queues de billard ?",
+    "options": [
+      "a.Identiques aux queues actuelles",
+      "b.Entièrement en ivoire",
+      "c.En bois, et recourbées",
+      "d.Y'en avait pas"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "15/ Au polo, que font généralement les spectateurs entre 2 périodes ?",
+    "options": [
+      "a.Ils nettoient les chevaux",
+      "b.Ils rebouchent les trous du terrain",
+      "c.Ils tondent la pelouse",
+      "d.Rien"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "16/ Quelle technique utilise une canne de plus de 11 m ?",
+    "options": [
+      "a.La pêche à la mouche",
+      "b.La pêche à l'anglaise",
+      "c.La pêche au lancer",
+      "d.La pêche au coup"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "17/ Combien de périodes compte un match de hockey sur glace ?",
+    "options": [
+      "a.3",
+      "b.4",
+      "c.4",
+      "d.5"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "18/ Le score maximum pour une partie de bowling est de ?",
+    "options": [
+      "a.200 points",
+      "b.300 points",
+      "c.400 points",
+      "d.500 points"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "19/ Field Goal, Kick off, Touchdown sont des termes de .. ?",
+    "options": [
+      "a.Football américain",
+      "b.RUgby",
+      "c.Trial",
+      "d.Basebeball"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "20/ Quelle discipline nécessite le port de gants d'environ 200 grammes et d'une coquille ?",
+    "options": [
+      "a.La boxe",
+      "b.La boxe tai",
+      "c.Le karaté",
+      "d.La préparation d'une omelette"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "21/ Quel est le nombre maximum de rameurs en Aviron ?",
+    "options": [
+      "a.6",
+      "b.8",
+      "c.10",
+      "d.12"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "22/ Lors d'un 110 m, les athlètes doivent sauter 10 haies. Pour un 400 m, ils doivent en sauter ?",
+    "options": [
+      "a.Autant",
+      "b.2x plus",
+      "c.3x plus",
+      "d.4x plus"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "23/ Avant le combat, que jettent les sumotoris au centre de la piste ?",
+    "options": [
+      "a.Du sable",
+      "b.De l'eau",
+      "c.Du poivre",
+      "d.Du sel"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "24/ Les billes de billard sont maintenant en résine synthétique. A l'origine, elles é'taient faites en... ?",
+    "options": [
+      "a.Bois",
+      "b.Ivoire",
+      "c.Os",
+      "d.Granit"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "25/ Qu'est-ce qui fait 11 cm de diamètre pour un poids de 110 grammes ?",
+    "options": [
+      "a.Un palet de hockey",
+      "b.Une quille de bowling",
+      "c.Une balle de polo",
+      "d.Un plateau de ball-trap"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "26/ Lequel de ces quatre noms ne fait pas partie du vocabulaire du golfeur ?",
+    "options": [
+      "a.Birdie",
+      "b.Cacatoès",
+      "c.Albatros",
+      "d.Eagles"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "27/  art utilise un sabre en lamelles de bambou?",
+    "options": [
+      "a.Le Kendo",
+      "b.Le Kyudo",
+      "c.Le Tae Kwon Do",
+      "d.Le Viet-vo-dao"
+    ],
+    "answer": 0
   },
   {
     "question": "AAAAA ?",
@@ -60,314 +290,84 @@
     "answer": 1
   },
   {
-    "question": "AAAAA ?",
+    "question": "28/ Dans quel sport n'avez-vous pas besoin de magnésie ?",
     "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
+      "a.Haltérophilie",
+      "b.Barre fixe",
+      "c.Cheval d'arçon",
+      "d.Equitation"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "29/ Quelle est la largeur d'un but de football ?",
+    "options": [
+      "a.7,12 m",
+      "b.7,22 m",
+      "c.7,32 m",
+      "d.7,42 m"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "30/Au tennis, les très fameux Mousquetaires se composaient de Borotra, Cochet, Lacoste et ... ?",
+    "options": [
+      "a.Pêche",
+      "b.Brugnon",
+      "c.Nectarine",
+      "d.Melon"
     ],
     "answer": 1
   },
   {
-    "question": "AAAAA ?",
+    "question": "31/ Quel est l'ancêtre du rugby ?",
     "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
+      "a.La serre",
+      "b.Le calcio",
+      "c.La soule",
+      "d.Le real-be"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
-    "question": "AAAAA ?",
+    "question": "32/ 1872 a vu la création du premier club de football. C'était...?",
     "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
+      "a.Le Havre Atletic Club",
+      "b.Paris Olympic Club",
+      "c.Auxerre Football Club",
+      "d.Nantes Sporting Club"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
-    "question": "AAAAA ?",
+    "question": "33/  Quelle est la cinquième épreuve du pentathlon moderne ?",
     "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
+      "a.L'escrime",
+      "b.Le lancement du poids",
+      "c.Une course cycliste",
+      "d.Le lancement du javelot"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
-    "question": "AAAAA ?",
+    "question": "34/ La première course automobile officielle s'étant déroulée en 1895 (Paris-Bordeaux-Paris), en quelle année a été rendu obligatoire le port du casque ? ?",
     "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
+      "a.1897",
+      "b.1923",
+      "c.1952",
+      "d.1964"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
-    "question": "AAAAA ?",
+    "question": " 35/ Parmi ces quatre mots, lequel ne désigne pas le cochonnet à la pétanque ?",
     "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
+      "a.Le cochon",
+      "b.Le but",
+      "c.Le petit",
+      "d.Le fanny"
     ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
-  },
-  {
-    "question": "AAAAA ?",
-    "options": [
-      "a.BBBBB",
-      "b.CCCCC",
-      "c.DDDD",
-      "d.EEEEEE"
-    ],
-    "answer": 1
+    "answer": 3
   },
   {
     "question": "AAAAA ?",

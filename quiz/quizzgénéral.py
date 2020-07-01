@@ -4,8 +4,8 @@ try:
     import tkinter as tk
     from tkinter import messagebox
 except ImportError:
-    import Tkinter as tk
-    import tkMessageBox as messagebox
+    import tkinter as tk
+    import tkinter.messagebox as messagebox
 import json
 
 class VerticalScrolledFrame:

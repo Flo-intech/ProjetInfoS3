@@ -120,7 +120,7 @@ class SpainBasket:
         for self.line in self.f.readlines():
             self.line = self.line.replace('\n', '')
             self.spain_basket_list.append(self.line)
-            self.team_tuple += (self.line, )
+            self.team_tuple2 += (self.line, )
         self.f.close()
 
         self.team1["values"] = self.team_tuple2
@@ -192,7 +192,7 @@ class England:
         for self.line in self.f.readlines():
             self.line = self.line.replace('\n', '')
             self.premierleague_list.append(self.line)
-            self.team_tuple += (self.line, )
+            self.team_tuple2 += (self.line, )
         self.f.close()
 
         self.team1["values"] = self.team_tuple2
@@ -264,7 +264,7 @@ class NBA:
         for self.line in self.f.readlines():
             self.line = self.line.replace('\n', '')
             self.nba_list.append(self.line)
-            self.team_tuple += (self.line, )
+            self.team_tuple2 += (self.line, )
         self.f.close()
 
         self.team1["values"] = self.team_tuple2
@@ -336,7 +336,7 @@ class SpainSoccer:
         for self.line in self.f.readlines():
             self.line = self.line.replace('\n', '')
             self.spain_soccer_list.append(self.line)
-            self.team_tuple += (self.line, )
+            self.team_tuple2 += (self.line, )
         self.f.close()
 
         self.team1["values"] = self.team_tuple2

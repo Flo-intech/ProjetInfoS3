@@ -7,6 +7,7 @@ On crée une fenêtre simple qui souhaite la bienvenue à l'utilisateur.
 #button a mettre en arrière-plan
 # On importe Tkinter
 from donnees_liste_joueurs_pays import * 
+from liveallmatch import AllSoccer, AllBasketball
 from tkinter import *
 import tkinter as tk
 from tkinter import ttk
@@ -510,9 +511,6 @@ class Carte:
 
         self.quit()
 
-#     def change_north_america(self):
-#         root1=Toplevel(self.master)
-#         north_america=NorthAmerica(root1)
 
 #     def change_europa(self):
 #         root2=Toplevel(self.master)
@@ -937,9 +935,9 @@ class Carte(Frame):
 
         helpmenu = Menu(menubar, tearoff=0)
 
-        helpmenu.add_command(label="Football")
+        helpmenu.add_command(label="Football", command=self.changesoccer)
 
-        helpmenu.add_command(label="Basketball")
+        helpmenu.add_command(label="Basketball", command=self.changebasket)
 
         helpmenu.add_command(label="Tennis")
 
@@ -950,10 +948,6 @@ class Carte(Frame):
         menubar.add_cascade(label="Matchs en direct", menu=helpmenu)
 
    
-   #  def change(self):
-   #     fenetre = Toplevel(self, master)
-   #     Basket = Question(fenetre)
-
  
 
     def texte(self):
@@ -1710,4 +1704,24 @@ class Carte(Frame):
 
         self.quit()
 
+    def changesoccer(self):
 
+        self.fenetre1 = Toplevel(self.master)
+        Soccer = AllSoccer(self.fenetre1)
+
+    def changebasket(self):
+
+        self.fenetre2 = Toplevel(self.master)
+        Basket = AllBasketball(self.fenetre2)
+
+
+# def main():
+    
+#     root = Tk()
+#     app = Carte(root)
+#     app.on=False
+#     #obj = Welcome(root) 
+#     root.mainloop()
+
+# if __name__ == '__main__':
+#     main()

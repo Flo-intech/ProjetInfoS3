@@ -1,7 +1,8 @@
 from tkinter import *
 from tkinter import messagebox
-from testprojet import Mappemonde
+from testprojet import Carte
 from sports import *
+from live import Bundesliga
 
 class Welcome:
     
@@ -162,7 +163,7 @@ class Connexion:
             self.pwd = pwd
             
             self.root3=Toplevel(self.master)
-            self.Map=Mappemonde(self.root3)
+            self.Map=Carte(self.root3)
       
 
         else:
